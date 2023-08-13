@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css"" />
+        <title>O! Test</title>
+    </head>
+    <body>
+        <div class="page-container" id="pageContainer">
+            <div class="test-header" id="testHeader">
+                <div class="header-logo-container">
+                    <img src="./img/logo.svg" alt="Логотип O! Test">
+                </div>
+                <div class="navigation-list" id="navigation">
+                    <a href="#programs" class="navigation-item">Программа коррекции</a>
+                    <a href="#faq" class="navigation-item">Вопрос-ответ</a>
+                    <a href="#" class="navigation-item">В магазин</a>
+                </div>
+                <div class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="test-main">
+                <div class="first-main-content-row">
+                    <div class="main-logo-container">
+                        <img src="./img/o!.svg" alt="O!">
+                    </div>
+                    <div class="content-block">
+                        <div class="content">
+                            Простой и надежный инструмент, который позволяет оценить текущее состояние организма, увеличить ресурсы своего организма и почувствовать себя лучше с помощью персонализированной коррекции продуктами VILAVI.
+                        </div>
+                    </div>
+                </div>
+                <div class="second-main-content-row">
+                    <div class="video-block" data-type="videoWrp">
+                        <!-- <iframe class="video-frame" id="mainVideo" src="https://www.youtube.com/embed/HBABteBYpMo" frameborder="0" style="max-width: 100%" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                        <video controls preload="metadata" class="video-frame" id="mainVideo" data-type="video">
+                            <source src="/src/video/otest1.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                </div>
+                <div class="third-main-content-row">
+                    <div class="content-block">
+                        <div class="content">
+                            Жирные кислоты омега-3 важны для бесчисленных аспектов нашего здоровья, от нейронов до клеток сердца, от сетчатки глаз до капилляров, но многие из нас не знают, как определить, получаем ли мы их достаточно. Более того, большинство ничего не знают об Омега-3.
+                        </div>
+                    </div>
+                    <div class="content-block">
+                        <div class="content">
+                            По разным данным, у <span class="main-color-text large-font-size">80 - 97%</span> населения есть дефицит омега-3 кислот!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pretesting">
+                <div class="pretesting-title">
+                    <div class="pretesting-title-item title">
+                        Знаете ли вы сколько омега-3 у вас?
+                    </div>
+                    <div class="pretesting-title-item subtitle">
+                        Определяем признаки дефицита омега-3
+                    </div>
+                    <div class="pretesting-title-item test-title">
+                        <span>
+                            Какие признаки у вас есть?
+                        </span>
+                        <span>
+                            Отметьте все признаки, которые у вас есть.
+                        </span>
+                    </div>
+                </div>
+
+                <form class="pretesting-form" id="pretestingForm">
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="skinProblems" name="skin-problems" value="" data-type="checkboxInput"/>
+                            <label class="test-item-label">Сухость, раздражение кожи</label>
+                        </div>
+                        <div class="test-item-annotation" data-type="annotation" data-state="close">
+                            <p>
+                                Если у вас дефицит омега-3, вполне вероятно, что ваша кожа узнает об этом первой и первой это проявит. Сухость кожи, покраснение, повышенная чувствительность и наличие высыпаний могут быть индикатором того, что вам не хватает Омега -3 жирных кислот для поддержания естественного барьера кожи, защищающего ее от потери влаги и воздействия окружающей среды.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="dryEyes" name="dry-eyes" value="" data-type="checkboxInput"/>
+                            <label class="test-item-label">Сухость глаз</label>
+                        </div>                            
+                        <div class="test-item-annotation" data-type="annotation" data-state="close">
+                            <p>
+                                Омега-3 жизненно важны для наших глаз. Исследования показали, что здоровье наших глаз зависит от омега-3. Если ваши глаза чувствуют себя сухими и зудящими, это может быть признаком того, что что-то не совсем сбалансировано с вашим омега-3.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="nervousBreakdowns" name="nervous-breakdowns" value="" data-type="checkboxInput"/>
+                            <label class="test-item-label">Беспокойство, нервные срывы</label>
+                        </div>
+                        <div class="test-item-annotation" data-type="annotation" data-state="close">
+                            <p>
+                                Было показано, что омега-3 оказывает нейропротекторное действие, помогая организму защищаться от нарушений и дегенерации. Повышенное чувство беспокойства может указывать на более низкие уровни омега-3.
+                            </p>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="jointPain" name="joint-pain" value="" data-type="checkboxInput"/>
+                            <label class="test-item-label">Боль в суставах и скованность по утрам</label>
+                        </div>    
+                        <div class="test-item-annotation" data-type="annotation" data-state="close">
+                            <p>
+                                Омега-3 обладает определенными свойствами, которые могут помочь при воспалении и сохранить наши суставы здоровыми. Утренняя скованность в суставах может быть показателем более низкого уровня омега-3. Получение достаточного количества омега-3 может помочь остановить воспалительные процессы, которые способствуют разрушению суставной ткани и воспалительной реакции, вызывающей боль.
+                            </p>
+                        </div>
+                    </div>   
+
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="problematicHair" name="problematic-hair" value="" data-type="checkboxInput"/>
+                            <label class="test-item-label">Ломкость, сечение, сухость волос и перхоть</label>
+                        </div>
+                        <div class="test-item-annotation" data-type="annotation" data-state="close">
+                            <p>
+                                Подобно изменениям кожи, изменения волос могут быть индикатором дефицита омега-3. Ваши волосы становятся сухими и ломкими, отмечается повышенное выпадение волос. Все это признаки низкого уровня омега-3. Если ваша кожа головы становится чувствительной, болезненной или шелушится, это также может быть индикатором недостатка омега-3. Кожа головы — очень чувствительная область кожи, поэтому обнаружение изменений может быть ранним предупредительным признаком.
+                            </p>
+                        </div>                 
+                    </div>
+                    
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="brittleNails" name="brittle-nails" value="" data-type="checkboxInput"/>
+                            <label class="test-item-label">Ломкость ногтей</label>
+                        </div>
+                        <div class="test-item-annotation" data-type="annotation" data-state="close">
+                            <p>
+                                Если ваши ногти становятся мягкими, ломкими или начинают слоиться, это может быть признаком того, что ваш уровень омега-3 не соответствует норме.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="sleepProblems" name="sleep-problems" value="" data-type="checkboxInput"/>
+                            <label class="test-item-label">Проблемы со сном</label>
+                        </div>
+                        <div class="test-item-annotation" data-type="annotation" data-state="close">
+                            <p>
+                                По мнению экспертов, люди с более высоким уровнем омега-3, как правило, быстрее засыпают и лучше спят. Причины изменения вашего режима сна широки и разнообразны, но они могут быть симптомом в том числе и дефицита омега-3.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="concentrationProblems" name="concentration-problems" value="" data-type="checkboxInput"/>
+                            <label class="test-item-label">Плохая концентрация и низкая внимательность</label>                            
+                        </div>
+                        <div class="test-item-annotation" data-type="annotation" data-state="close">
+                            <p>
+                                Омега-3 жизненно важны для здоровья и функционирования мозга, поэтому, если вы обнаружите, что не можете сосредоточиться или выполнить задачи, которые вы обычно могли бы выполнить без проблем, это может быть еще одним признаком дефицита омега-3.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="earwaxAccumulation" name="earwax-accumulation" value="" data-type="checkboxInput"/>
+                            <label class="test-item-label">Скопление ушной серы</label>
+                        </div>
+                        <div class="test-item-annotation" data-type="annotation" data-state="close">
+                            <p>
+                                Это довольно странная вещь. Но это верный признак низкого уровня омега-3, который со временем может способствовать потере слуха. Значительное повышение уровня защиты слуха у тех, у кого достаточное количество омега-3.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="chronicFatigue" name="chronic-fatigue" value="" data-type="checkboxInput"/>
+                            <label class="test-item-label">Хроническая усталость</label>
+                        </div>                            
+                        <div class="test-item-annotation" data-type="annotation" data-state="close">
+                            <p>
+                                Повышенный уровень усталости в сочетании с любыми другими симптомами дефицита омега-3 может указывать на то, что пришло время помогать своему организму.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pretesting-submit-wrp">
+                        <button class="pretesting-submit-btn" type="submit">Узнать результаты</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="product-box">
+                <div class="prb-info">
+                    <div class="info-title">
+                        <img src="./img/logo-box.svg" alt="" class="info-title-image">
+                    </div>
+                    <div class="info-description">
+                        Омега-3 индекс отражает уровень содержания двух наиболее значимых омега-3 полиненасыщенных жирных кислот, является доступным для регуляции (с помощью коррекции питания) и позволяет оценить риск внезапной сердечной смерти, инфаркта миокарда и других сердечно-сосудистых и нейродегенеративных заболеваний.
+                    </div>
+                </div>
+                <div class="prb-image-wrp">
+                    <img src="./img/otest-box.png" alt="">
+                </div>
+            </div>
+
+            <div class="stages">
+                <div class="stages-title">Этапы проведения O! Test</div>
+                <div class="stages-wrp">
+                    <div class="stage">
+                        <div class="stage-icon-wrp">
+                            <img src="./img/1.svg" alt="" class="stage-icon">
+                        </div>
+                        <div class="stage-title">
+                            1. Делаем анализ дома
+                        </div>
+                        <div class="stage-description">
+                            В наборе есть все необходимое для того, чтобы сделать тест. Анализ проводится с использованием специально подготовленной тест полоски, позволяющей хранить и транспортировать “сухую кровь” в лабораторию. Вы самостоятельно собираете кровь на тест полоску в удобное время.
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div class="stage-icon-wrp">
+                            <img src="./img/2.svg" alt="" class="stage-icon">
+                        </div>
+                        <div class="stage-title">
+                            2. Отправляем анализ в лабораторию
+                        </div>
+                        <div class="stage-description">
+                            Вызываем вам курьера и далее анализ передается в лабораторию где производится исследование (190013, ГОРОД САНКТ-ПЕТЕРБУРГ, МОСКОВСКИЙ ПРОСПЕКТ, ДОМ 22, ЛИТЕР Л, ПОМ. 25-Н КОМН. 1).
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div class="stage-icon-wrp">
+                            <img src="./img/3.svg" alt="" class="stage-icon">
+                        </div>
+                        <div class="stage-title">
+                            3. Получаем результат
+                        </div>
+                        <div class="stage-description">
+                            В лаборатории проводится исследование и вы получаете результат анализа на электронную почту через неделю.
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div class="stage-icon-wrp">
+                            <img src="./img/4.svg" alt="" class="stage-icon">
+                        </div>
+                        <div class="stage-title">
+                            4. Получаем персональный протокол коррекции
+                        </div>
+                        <div class="stage-description">
+                            Данные, полученные в ходе исследования, являются основным критерием для выбора оптимального протокола приема продуктов для коррекции Омега-3.
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div class="stage-icon-wrp">
+                            <img src="./img/5.svg" alt="" class="stage-icon">
+                        </div>
+                        <div class="stage-title">
+                            5. Проводим коррекцию омега-3
+                        </div>
+                        <div class="stage-description">
+                            Принимаем продукты, рекомендованные в протоколе коррекции.
+                        </div>
+                    </div>
+                    <div class="stage">
+                        <div class="stage-icon-wrp">
+                            <img src="./img/6.svg" alt="" class="stage-icon">
+                        </div>
+                        <div class="stage-title">
+                            6. Делаем контрольный анализ
+                        </div>
+                        <div class="stage-description">
+                            Улучшение состояния здоровья — динамичный процесс. Через 2 месяца приема рекомендованных продуктов из Вашей персональной программы коррекции делаем контрольный анализ омега-3 и сравниваем результаты до и после.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-instruction">
+                <div class="video-instruction-title">
+                    Видео-инструкция:
+                </div>
+                <div class="video-block" data-type="videoWrp">
+                    <!-- <iframe class="video-frame" id="mainVideo" src="https://www.youtube.com/embed/HBABteBYpMo" frameborder="0" style="max-width: 100%" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                    <video controls preload="metadata" class="video-frame" id="videoInstruction" data-type="video">
+                        <source src="/src/video/flowers.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+
+            <div class="correction-programs" id="programs">
+                <div class="programs-title-wrp">
+                    <div class="programs-title">Программы коррекции</div>
+                    <div class="programs-subtitle">Достижение желательного уровня омега-3 индекса возможно путем изменения рациона.</div>
+                </div>
+                <div class="programs-description-wrp">
+                    <div class="programs-description">Программы коррекции — синергия функциональных продуктов VILAVI и рекомендаций по улучшению образа жизни, составленных вместе с экспертами-врачами для улучшения ресурсного состояния организма.</div>
+                    <div class="programs-description" data-style="four-corners"><div class="main-color-text">Интересный факт:</div> По статистическим оценкам, повышение омега-3 индекса на 2% (от 6% до 8%) приводит к 15% снижению сердечно-сосудистых рисков.</div>
+                </div>
+                <div class="programs-result-wrp">
+                    <div class="programs-result-title">Получили результат омега-3 индекса?</div>
+                    <div class="programs-result-content">Введите свой результат и мы подберем программу коррекции</div>
+                    <div class="programs-result-input">
+                        <label for="omegaIndex" class="programs-result-input-label">
+                            <div>Мой омега-3 индекс</div>
+                            <div><input id="omegaIndex" class="omega-index-input" type="number" min="0" max="100" step="0.1"/> %</div>
+                        </label>
+                    </div>
+                    <button class="programs-result-btn" id="programsResultBtn">Подобрать протокол коррекции</button>
+                </div>
+            </div>
+
+            <div class="faq" id="faq">
+                <div class="faq-title">Вопрос-ответ</div>
+                <div class="faq-list">
+                    <div class="faq-list-item" data-type="faq-list-item" data-state="collapse">
+                        <div class="faq-question" data-type="faq-question">
+                            <div class="expand-icon"><span data-type="rotatable" class="line-item"></span><span class="line-item"></span></div>
+                            <span>Для чего организму нужны омега-3 кислоты?</span>
+                        </div>
+                        <div class="faq-answer" data-type="answer">
+                            <p>
+                                Омега-3 оказывают разностороннее влияние на человеческий организм. Они важны для полноценной работы головного мозга, эффективной работы системы кровообращения, нервной системы, правильного обмена веществ. Омега-3, улучшают вязкость крови, поддерживают активность лейкоцитов, снижают концентрацию гомоцистеина, аминокислоты, накопление, которой приводит к тромбообразованию.
+                            </p>
+                            <p>
+                                Омега-3 стимулируют иммунную систему, обладают противовоспалительными свойствами, укрепляют природный защитный барьер от бактерий и вирусов, улучшают проницаемость клеточных мембран для кислорода, что приводит к быстрой доставке кислорода к тканям и клеткам, активирует производство гормонов, принимающих участие во всех биохимических клеточных процессах. Формируют мужские половые клетки, мембранные оболочки нейронов головного мозга, а также сетчатки глаз, поддерживают подвижность суставов, купирует болевой синдром при артритах и артрозах.
+                            </p>
+                            <p>
+                                Омега-3 замедляют процессы старения, снижают аппетит и подавляют чувство голода, улучшают внимание, память, участвуют в обменных процессах гормона радости, снижая эмоциональное напряжение. Помогают сохранить здоровье волос, кожи, ногтей, помогают при планировании беременности подготовить организм, а также способствуют правильному развитию плода во время беременности.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-list-item" data-type="faq-list-item" data-state="collapse">
+                        <div class="faq-question" data-type="faq-question">
+                            <div class="expand-icon"><span data-type="rotatable" class="line-item"></span><span class="line-item"></span></div>
+                            <span>Что такое омега-3 индекс?</span>
+                        </div>
+                        <div class="faq-answer" data-type="answer">
+                            <p>
+                                Омега-3 индекс - суммарный процент эйкозапентаеновой (ЭПК ) и докозагексаеновой (ДГК) кислот от общего количества жирных кислот в мембране эритроцита. Омега-3 индекс отражает уровень содержания двух наиболее значимых омега-3 полиненасыщенных жирных кислот, является доступным для регуляции (с помощью коррекции питания) и позволяет оценить риск внезапной сердечной смерти, инфаркта миокарда и других сердечно-сосудистых и нейродегенеративных заболеваний.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-list-item" data-type="faq-list-item" data-state="collapse">
+                        <div class="faq-question" data-type="faq-question">
+                            <div class="expand-icon"><span data-type="rotatable" class="line-item"></span><span class="line-item"></span></div>
+                            <span>Как сдать омега-3 индекс?</span>
+                        </div>
+                        <div class="faq-answer" data-type="answer">
+                            <p>
+                                Это очень просто. Анализ проводится с использованием специально подготовленной тест полоски. Вы самостоятельно собираете кровь на тест полоску в удобное для Вас время. Далее анализ передается курьером в лабораторию, где производится исследование и вам высылаются результаты анализа по электронной почте. Данные, полученные в ходе исследования, являются основным критерием для выбора оптимального протокола приема продуктов для коррекции Омега-3.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-list-item" data-type="faq-list-item" data-state="collapse">
+                        <div class="faq-question" data-type="faq-question">
+                            <div class="expand-icon"><span data-type="rotatable" class="line-item"></span><span class="line-item"></span></div>
+                            <span>Что такое программы коррекции?</span>
+                        </div>
+                        <div class="faq-answer" data-type="answer">
+                            <p>
+                                Программы коррекции — синергия функциональных продуктов VILAVI и рекомендаций по улучшению образа жизни, составленных вместе с экспертами-врачами для улучшения ресурсного состояния организма.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-list-item" data-type="faq-list-item" data-state="collapse">
+                        <div class="faq-question" data-type="faq-question">
+                            <div class="expand-icon"><span data-type="rotatable" class="line-item"></span><span class="line-item"></span></div>
+                            <span>Как подобрать программы коррекции?</span>
+                        </div>
+                        <div class="faq-answer" data-type="answer">
+                            <p>
+                                Данные, полученные в ходе исследования омега-3 индекса, являются основным критерием для выбора оптимального протокола приема продуктов для коррекции Омега-3.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-content">
+                    <div class="footer-logo-wrp">
+                        <img src="./img/vilavi-logo.svg" alt="" class="footer-logo">
+                    </div>
+                    <div class="contacts">
+                        <div class="email">
+                            <p>INFO@VILAVI.COM</p>
+                            <p>(Служба поддержки)</p>
+                        </div>
+                        <div class="phone">    
+                            <p>8 800 700 6 888</p>
+                            <p>(по России звонок бесплатный)</p>
+                            <p>по будням с 05:00 до 16:00</p>
+                            <p>в выходные с 07:00 до 16-00</p>
+                            <p>по московскому времени</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    2017-2023 © VILAVI INT LTD. Все права защищены. Димостени Севери 12, 6-й этаж, офис 601, 1080, Никосия, Кипр
+                </div>
+            </div>
+
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
