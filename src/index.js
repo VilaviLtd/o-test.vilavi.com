@@ -40,9 +40,8 @@ function stagesClickHandler(e) {
             description.style.height = cardContentHeight + 'px';
         }
 
-        let isTurned = card.classList.contains('turned');
+        const isTurned = card.classList.contains('turned');
         isTurned ? card.classList.remove('turned') : '';
-        
         
         const p1 = new Promise(function(resolve) {
             card.classList.add('clicked');
@@ -54,7 +53,6 @@ function stagesClickHandler(e) {
 
         p1.then(() => {
             card.classList.add('turned');
-            isTurned = card.classList.contains('turned');
             if (currentSide === 'front') {
                 iconWrp.style.display = 'none';
                 title.style.display = 'none';
