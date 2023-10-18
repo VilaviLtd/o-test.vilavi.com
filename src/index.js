@@ -38,7 +38,6 @@ function stagesClickHandler(e) {
         const cardContentHeight = currentSide === 'front' ? (iconWrp.getBoundingClientRect().height + title.getBoundingClientRect().height) : null;
         if (cardContentHeight) {
             description.style.height = cardContentHeight + 'px';
-            description.style.height = cardContentHeight + 'px';
         }
 
         let isTurned = card.classList.contains('turned');
