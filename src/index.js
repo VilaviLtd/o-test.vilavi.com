@@ -22,6 +22,55 @@ programsResultBtn.addEventListener('click', () => {
     const index = pageContainer.querySelector('#omegaIndex').value;
     openModal('correctionPrograms', { index });
 })
+const stagesWrp = pageContainer.querySelector('.stages-wrp');
+const stages = Array.from(stagesWrp.querySelectorAll('.stage'));
+stagesWrp.addEventListener('click', stagesClickHandler);
+
+function stagesClickHandler(e) {    
+    const { target } = e;
+    const card = target?.dataset?.type === 'card' ? target : target.closest('[data-type="card"]');
+    if (card) {
+        const iconWrp = card.querySelector('.stage-icon-wrp'); 
+        const title = card.querySelector('.stage-title');
+        const description = card.querySelector('.stage-description');
+
+        const currentSide = card.dataset.side;
+        const cardContentHeight = currentSide === 'front' ? (iconWrp.getBoundingClientRect().height + title.getBoundingClientRect().height) : null;
+        if (cardContentHeight) {
+            description.style.height = cardContentHeight + 'px';
+            description.style.height = cardContentHeight + 'px';
+        }
+
+        let isTurned = card.classList.contains('turned');
+        isTurned ? card.classList.remove('turned') : '';
+        
+        
+        const p1 = new Promise(function(resolve) {
+            card.classList.add('clicked');
+            setTimeout(() => {
+                card.classList.remove('clicked');
+                resolve('result');
+            }, 350);
+        });
+
+        p1.then(() => {
+            card.classList.add('turned');
+            isTurned = card.classList.contains('turned');
+            if (currentSide === 'front') {
+                iconWrp.style.display = 'none';
+                title.style.display = 'none';
+                description.style.display ='flex';
+                card.setAttribute('data-side', 'back');
+            } else {
+                iconWrp.style.display = 'flex';
+                title.style.display = 'block';
+                description.style.display = 'none';
+                card.setAttribute('data-side', 'front');
+            }
+        });
+    }
+}
+
 
 /* Чекбоксы предварительного тестирования */
 const checkboxWrps = document.querySelectorAll('[data-type="checkbox-wrp"]');
@@ -56,7 +105,7 @@ function showAnnotation(ann, paragraphs) {
 function hideAnnotation(ann, paragraphs) {
     paragraphs.forEach(p => p.style.display = 'none');
     ann.style.padding = '0';
-    ann.style.height = '0';
+    ann.style.height = '0'; 
     ann.style.opacity = '0';
     ann.dataset.state = 'close';
 }
