@@ -90,14 +90,15 @@ img {
     color: inherit;
     font-size: 1.06rem;
     text-decoration: none;
-    transition: color .2s ease;
+    transition: transform .2s linear;
 }
 
 .navigation-item:hover {
     cursor: pointer;
     color: var(--main-color);
-    font-weight: 500;
+    font-weight: bold;
     text-decoration: none;
+    transform: scale(1.05);
 }
 
 .navigation-item:not(:first-child) {
