@@ -57,6 +57,11 @@ img {
 }
 
 .test-header {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    background-color: var(--container-bg-color);
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -779,7 +784,7 @@ div[data-style="four-corners"] {
 
     .test-header {
         padding: 1rem 2rem;
-        position: relative;
+        position: sticky;
     }
 
     .header-logo-container {
