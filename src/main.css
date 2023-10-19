@@ -76,7 +76,7 @@ img {
 .navigation-list {
     width: 50%;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     transition: all .5s ease;
 }
@@ -98,6 +98,10 @@ img {
     color: var(--main-color);
     font-weight: 500;
     text-decoration: none;
+}
+
+.navigation-item:not(:first-child) {
+    margin-left: 2rem;
 }
 
 .hide {
@@ -815,6 +819,7 @@ div[data-style="four-corners"] {
 
     .navigation-item:not(:first-child) {
         margin-top: .5rem;
+        margin-left: 0;
     }
 
     /* Burger */
