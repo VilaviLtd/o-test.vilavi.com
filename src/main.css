@@ -506,6 +506,7 @@ img {
 .stage-description {
     display: none;
     align-items: center;
+    padding: 0 2rem;
 }
 
 .stage-title,
