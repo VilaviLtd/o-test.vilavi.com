@@ -1,3 +1,19 @@
+/* запись рефки в куки */
+const params = new URLSearchParams(document.location.search);
+const ref = params.get('ref');
+if (ref) {
+    const refRegExp = /^\d+$/;
+    if (refRegExp.test(ref)) {
+        let date = new Date(Date.now() + 31557600e3);
+        document.cookie = `ref=${ref}; expires=${date}`;
+    } else {
+        console.log(`ref: ${ref} is not valid`);    
+    }
+} else {
+    console.log('ref is none'); // что делать если рефки нет? Скрывать кнопку "Купить"?
+}
+/* запись рефки в куки */
+
 const pageContainer = document.querySelector('#pageContainer');
 const header = document.querySelector('#testHeader');
 const navigation = header.querySelector('#navigation');
