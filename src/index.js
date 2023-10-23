@@ -62,7 +62,7 @@ function stagesClickHandler(e) {
             setTimeout(() => {
                 card.classList.remove('clicked');
                 resolve('result');
-            }, 350);
+            }, 175);
         });
 
         p1.then(() => {

@@ -487,11 +487,11 @@ img {
 }
 
 .stage.clicked {
-    animation: .35s forwards YRotateHalfTurned linear;
+    animation: .175s forwards YRotateHalfTurned linear;
 }
 
 .stage.turned {
-    animation: .35s forwards YRotateFullTurned linear;
+    animation: .175s forwards YRotateFullTurned linear;
 }
 
 .stage-icon-wrp {
