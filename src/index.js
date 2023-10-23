@@ -6,8 +6,6 @@ if (ref) {
     if (refRegExp.test(ref)) {
         let date = new Date(Date.now() + 31557600e3);
         document.cookie = `ref=${ref}; expires=${date}`;
-    } else {
-        console.log(`ref is not valid`);    
     }
 }
 /* запись рефки в куки */
