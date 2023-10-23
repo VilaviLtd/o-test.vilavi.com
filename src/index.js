@@ -9,8 +9,6 @@ if (ref) {
     } else {
         console.log(`ref: ${ref} is not valid`);    
     }
-} else {
-    console.log('ref is none'); // что делать если рефки нет? Скрывать кнопку "Купить"?
 }
 /* запись рефки в куки */
 
