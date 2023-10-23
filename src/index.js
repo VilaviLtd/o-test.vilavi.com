@@ -7,7 +7,7 @@ if (ref) {
         let date = new Date(Date.now() + 31557600e3);
         document.cookie = `ref=${ref}; expires=${date}`;
     } else {
-        console.log(`ref: ${ref} is not valid`);    
+        console.log(`ref is not valid`);    
     }
 }
 /* запись рефки в куки */
@@ -81,7 +81,6 @@ function stagesClickHandler(e) {
         });
     }
 }
-
 
 /* Чекбоксы предварительного тестирования */
 const checkboxWrps = document.querySelectorAll('[data-type="checkbox-wrp"]');
