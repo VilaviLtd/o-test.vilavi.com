@@ -4,20 +4,38 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="main.css?1" />
+        <link rel="stylesheet" href="main.css?9" />
         <title>O! Test</title>
     </head>
     <body>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(95360051, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true,
+         webvisor:true,
+         trackHash:true
+    });
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/95360051" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
         <div class="page-container" id="pageContainer">
             <div class="test-header" id="testHeader">
                 <div class="header-logo-container">
                     <img src="./img/logo.svg" alt="Логотип O! Test">
                 </div>
                 <div class="navigation-list" id="navigation">
-                    <a href="#programs" class="navigation-item">О&#33;пределяй</a>
-                    <a href="#" class="navigation-item">О!птимизируй</a>
-                    <a href="#" class="navigation-item">О!тслеживай</a>
-                    <a href="#" class="navigation-item">Купить</a>
+                    <a href="#pretesting" class="navigation-item">О!пределяй</a>
+                    <a href="#optimize" class="navigation-item">О!птимизируй</a>
+                    <a href="#retesting" class="navigation-item">О!тслеживай</a>
+                    <a href="https://shop.vilavi.com/" target="_blank" class="navigation-item">Купить</a>
                 </div>
                 <div class="burger" id="burger">
                     <span></span>
@@ -72,7 +90,7 @@
                 </div>
                 <div class="problems-list-block-item">
                     <p>
-                        о том, что дефицит жирных кислот Омега-3 представляет собой мультидисциплинарную проблему и может повлечь целый комплекс нарушений в работе нашего организма, как внутри его так и снаружи.
+                        о том, что дефицит жирных кислот Омега-3 представляет собой серьезную проблему и может повлечь целый комплекс нарушений в работе нашего организма, как внутри его так и снаружи.
                     </p>
                 </div>
                 <div class="problems-list-block-item">
@@ -161,12 +179,12 @@
                 </div>
             </div>
 
-            <div class="pretesting">
+            <div class="pretesting" id="pretesting">
                 <div class="pretesting-title">
                     <div class="pretesting-title-item title">
-                        Знаете ли вы сколько омега-3 у вас?
+                        Ответьте на простые вопросы и узнайте, как Омега-3 влияет на состояние вашего организма
                     </div>
-                    <div class="pretesting-title-item subtitle">
+                    <!-- <div class="pretesting-title-item subtitle">
                         Определяем признаки дефицита омега-3
                     </div>
                     <div class="pretesting-title-item test-title">
@@ -176,134 +194,122 @@
                         <span>
                             Отметьте все признаки, которые у вас есть.
                         </span>
-                    </div>
+                    </div> -->
                 </div>
 
                 <form class="pretesting-form" id="pretestingForm">
+
+                    <fieldset>
+                        <legend>Пол</legend>
+
+                        <div class="checkbox-wrp" data-type="checkbox-wrp">
+                            <div class="input-label">
+                                <input class="checkbox-input" type="radio" id="male" name="gender" value="male" required/>
+                                <label class="test-item-label" for="male">мужской</label>
+                            </div>
+
+                            <div class="input-label">
+                                <input class="checkbox-input" type="radio" id="female" name="gender" value="female"/>
+                                <label class="test-item-label" for="female">женский</label>
+                            </div>
+                        </div>
+
+                        <label for="age" class="programs-result-input-label">
+                            <div style="width: max-content;">Возраст</div>
+                            <div><input id="age" class="omega-index-input" type="number" name="age" min="1" max="100" step="1" required/> лет</div>
+                        </label>
+                    </fieldset>
+
+                    <p style="padding-top: .5rem;">
+                        Укажите все характеристики, которые у вас есть:
+                    </p>
                     <div class="checkbox-wrp" data-type="checkbox-wrp">
                         <div class="input-label">
-                            <input class="checkbox-input" type="checkbox" id="skinProblems" name="skin-problems" value="" data-type="checkboxInput"/>
-                            <label class="test-item-label">Сухость, раздражение кожи</label>
-                        </div>
-                        <div class="test-item-annotation" data-type="annotation" data-state="close">
-                            <p>
-                                Если у вас дефицит омега-3, вполне вероятно, что ваша кожа узнает об этом первой и первой это проявит. Сухость кожи, покраснение, повышенная чувствительность и наличие высыпаний могут быть индикатором того, что вам не хватает Омега -3 жирных кислот для поддержания естественного барьера кожи, защищающего ее от потери влаги и воздействия окружающей среды.
-                            </p>
+                            <input class="checkbox-input" type="checkbox" id="hormonalImbalances" name="hormonal-imbalances" value="hormonalImbalances"/>
+                            <label class="test-item-label" for="hormonalImbalances">Гормональные сбои</label>
                         </div>
                     </div>
                     
                     <div class="checkbox-wrp" data-type="checkbox-wrp">
                         <div class="input-label">
-                            <input class="checkbox-input" type="checkbox" id="dryEyes" name="dry-eyes" value="" data-type="checkboxInput"/>
-                            <label class="test-item-label">Сухость глаз</label>
-                        </div>                            
-                        <div class="test-item-annotation" data-type="annotation" data-state="close">
-                            <p>
-                                Омега-3 жизненно важны для наших глаз. Исследования показали, что здоровье наших глаз зависит от омега-3. Если ваши глаза чувствуют себя сухими и зудящими, это может быть признаком того, что что-то не совсем сбалансировано с вашим омега-3.
-                            </p>
+                            <input class="checkbox-input" type="checkbox" id="weightProblems" name="weight-problems" value="weightProblems"/>
+                            <label class="test-item-label" for="weightProblems">Лишний или недостаточный вес</label>
                         </div>
                     </div>
 
                     <div class="checkbox-wrp" data-type="checkbox-wrp">
                         <div class="input-label">
-                            <input class="checkbox-input" type="checkbox" id="nervousBreakdowns" name="nervous-breakdowns" value="" data-type="checkboxInput"/>
-                            <label class="test-item-label">Беспокойство, нервные срывы</label>
-                        </div>
-                        <div class="test-item-annotation" data-type="annotation" data-state="close">
-                            <p>
-                                Было показано, что омега-3 оказывает нейропротекторное действие, помогая организму защищаться от нарушений и дегенерации. Повышенное чувство беспокойства может указывать на более низкие уровни омега-3.
-                            </p>
-                        </div>
-                        
-                    </div>
-                    
-                    <div class="checkbox-wrp" data-type="checkbox-wrp">
-                        <div class="input-label">
-                            <input class="checkbox-input" type="checkbox" id="jointPain" name="joint-pain" value="" data-type="checkboxInput"/>
-                            <label class="test-item-label">Боль в суставах и скованность по утрам</label>
-                        </div>    
-                        <div class="test-item-annotation" data-type="annotation" data-state="close">
-                            <p>
-                                Омега-3 обладает определенными свойствами, которые могут помочь при воспалении и сохранить наши суставы здоровыми. Утренняя скованность в суставах может быть показателем более низкого уровня омега-3. Получение достаточного количества омега-3 может помочь остановить воспалительные процессы, которые способствуют разрушению суставной ткани и воспалительной реакции, вызывающей боль.
-                            </p>
+                            <input class="checkbox-input" type="checkbox" id="jointPain" name="joint-pain" value="jointPain" />
+                            <label class="test-item-label" for="jointPain">Боль в суставах и скованность по утрам</label>
                         </div>
                     </div>   
 
                     <div class="checkbox-wrp" data-type="checkbox-wrp">
                         <div class="input-label">
-                            <input class="checkbox-input" type="checkbox" id="problematicHair" name="problematic-hair" value="" data-type="checkboxInput"/>
-                            <label class="test-item-label">Ломкость, сечение, сухость волос и перхоть</label>
-                        </div>
-                        <div class="test-item-annotation" data-type="annotation" data-state="close">
-                            <p>
-                                Подобно изменениям кожи, изменения волос могут быть индикатором дефицита омега-3. Ваши волосы становятся сухими и ломкими, отмечается повышенное выпадение волос. Все это признаки низкого уровня омега-3. Если ваша кожа головы становится чувствительной, болезненной или шелушится, это также может быть индикатором недостатка омега-3. Кожа головы — очень чувствительная область кожи, поэтому обнаружение изменений может быть ранним предупредительным признаком.
-                            </p>
-                        </div>                 
-                    </div>
-                    
-                    <div class="checkbox-wrp" data-type="checkbox-wrp">
-                        <div class="input-label">
-                            <input class="checkbox-input" type="checkbox" id="brittleNails" name="brittle-nails" value="" data-type="checkboxInput"/>
-                            <label class="test-item-label">Ломкость ногтей</label>
-                        </div>
-                        <div class="test-item-annotation" data-type="annotation" data-state="close">
-                            <p>
-                                Если ваши ногти становятся мягкими, ломкими или начинают слоиться, это может быть признаком того, что ваш уровень омега-3 не соответствует норме.
-                            </p>
+                            <input class="checkbox-input" type="checkbox" id="nervousBreakdowns" name="nervous-breakdowns" value="nervousBreakdowns"/>
+                            <label class="test-item-label" for="nervousBreakdowns">Нервные срывы и депрессивное настроение</label>
                         </div>
                     </div>
 
                     <div class="checkbox-wrp" data-type="checkbox-wrp">
                         <div class="input-label">
-                            <input class="checkbox-input" type="checkbox" id="sleepProblems" name="sleep-problems" value="" data-type="checkboxInput"/>
-                            <label class="test-item-label">Проблемы со сном</label>
-                        </div>
-                        <div class="test-item-annotation" data-type="annotation" data-state="close">
-                            <p>
-                                По мнению экспертов, люди с более высоким уровнем омега-3, как правило, быстрее засыпают и лучше спят. Причины изменения вашего режима сна широки и разнообразны, но они могут быть симптомом в том числе и дефицита омега-3.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="checkbox-wrp" data-type="checkbox-wrp">
-                        <div class="input-label">
-                            <input class="checkbox-input" type="checkbox" id="concentrationProblems" name="concentration-problems" value="" data-type="checkboxInput"/>
-                            <label class="test-item-label">Плохая концентрация и низкая внимательность</label>                            
-                        </div>
-                        <div class="test-item-annotation" data-type="annotation" data-state="close">
-                            <p>
-                                Омега-3 жизненно важны для здоровья и функционирования мозга, поэтому, если вы обнаружите, что не можете сосредоточиться или выполнить задачи, которые вы обычно могли бы выполнить без проблем, это может быть еще одним признаком дефицита омега-3.
-                            </p>
+                            <input class="checkbox-input" type="checkbox" id="sleepProblems" name="sleep-problems" value="sleepProblems"/>
+                            <label class="test-item-label" for="sleepProblems">Проблемы со сном, бессоница</label>
                         </div>
                     </div>
 
                     <div class="checkbox-wrp" data-type="checkbox-wrp">
                         <div class="input-label">
-                            <input class="checkbox-input" type="checkbox" id="earwaxAccumulation" name="earwax-accumulation" value="" data-type="checkboxInput"/>
-                            <label class="test-item-label">Скопление ушной серы</label>
-                        </div>
-                        <div class="test-item-annotation" data-type="annotation" data-state="close">
-                            <p>
-                                Это довольно странная вещь. Но это верный признак низкого уровня омега-3, который со временем может способствовать потере слуха. Значительное повышение уровня защиты слуха у тех, у кого достаточное количество омега-3.
-                            </p>
+                            <input class="checkbox-input" type="checkbox" id="concentrationProblems" name="concentration-problems" value="concentrationProblems"/>
+                            <label class="test-item-label" for="concentrationProblems">Плохая концентрация и низкая внимательность</label>                            
                         </div>
                     </div>
-                    
+
                     <div class="checkbox-wrp" data-type="checkbox-wrp">
                         <div class="input-label">
-                            <input class="checkbox-input" type="checkbox" id="chronicFatigue" name="chronic-fatigue" value="" data-type="checkboxInput"/>
-                            <label class="test-item-label">Хроническая усталость</label>
-                        </div>                            
-                        <div class="test-item-annotation" data-type="annotation" data-state="close">
-                            <p>
-                                Повышенный уровень усталости в сочетании с любыми другими симптомами дефицита омега-3 может указывать на то, что пришло время помогать своему организму.
-                            </p>
+                            <input class="checkbox-input" type="checkbox" id="chronicFatigue" name="chronic-fatigue" value="chronicFatigue"/>
+                            <label class="test-item-label" for="chronicFatigue">Хроническая усталость</label>
+                        </div> 
+                    </div>
+
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="bloodPressureProblems" name="blood-pressure-problems" value="bloodPressureProblems"/>
+                            <label class="test-item-label" for="bloodPressureProblems">Проблемы с давлением</label>
                         </div>
                     </div>
+
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="heartAttack" name="heart-attack" value="heartAttack"/>
+                            <label class="test-item-label" for="heartAttack">Перенесенный инфаркт или инсульт или генетическая предрасположенность</label>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="reproductiveProblems" name="reproductive-problems" value="reproductiveProblems"/>
+                            <label class="test-item-label" for="reproductiveProblems">Проблемы с репродуктивной функцией</label>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-wrp" data-type="checkbox-wrp">
+                        <div class="input-label">
+                            <input class="checkbox-input" type="checkbox" id="problematicHair" name="problematic-hair" value="problematicHair"/>
+                            <label class="test-item-label" for="problematicHair">Неудовлетворенность состоянием кожи, ногтей и волос</label>
+                        </div>
+                    </div>                    
+                    
                     <div class="pretesting-submit-wrp">
                         <button class="pretesting-submit-btn" type="submit">Узнать результаты</button>
                     </div>
                 </form>
+
+                <div class="pretesting-title" style="margin-top: 2rem;">
+                    <div class="pretesting-title-item title">
+                        Мы предлагаем удобное решение с точной оценкой омега-3 индекса - O! Test
+                    </div>
+                </div>
             </div>
 
             <div class="product-box">
@@ -312,7 +318,7 @@
                         <img src="./img/logo-box.svg" alt="" class="info-title-image">
                     </div>
                     <div class="info-description">
-                        Омега-3 индекс отражает уровень содержания двух наиболее значимых омега-3 полиненасыщенных жирных кислот, является доступным для регуляции (с помощью коррекции питания) и позволяет оценить риск внезапной сердечной смерти, инфаркта миокарда и других сердечно-сосудистых и нейродегенеративных заболеваний.
+                        Простой и надежный инструмент, который позволяет оценить текущее состояние организма, увеличить ресурсы своего организма и почувствовать себя лучше с помощью персонализированной коррекции продуктами VILAVI.
                     </div>
                 </div>
                 <div class="prb-image-wrp">
@@ -320,6 +326,97 @@
                 </div>
             </div>
 
+            <div class="video-block">
+                <div class="video-block-title">
+                    Посмотри, это важно.
+                </div>
+                <div class="video-wrp" id="videoWrp">
+                    <iframe id="video1" width="" height="" src="https://www.youtube.com/embed/t0km3x--6_c?si=3yUjH83zUzABzz_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="advantages-block">
+                <div class="advantages-block-title">
+                    Преимущества
+                </div>
+                <div class="advantages">
+                    <div class="advanages-item">
+                        <div class="advantages-title">
+                            Персонализировано
+                        </div>
+                        <div class="advantages-decription">
+                            Вы получите персональные рекомендации по результатам теста, чтобы внести изменения в свой рацион и улучшить свое самочувствие
+                        </div>
+                    </div>
+                    <div class="advanages-item">
+                        <div class="advantages-title">
+                            Экспертно
+                        </div>
+                        <div class="advantages-decription">
+                            Технологии и научный подход — важные составляющие нашей работы.
+                        </div>
+                    </div>
+                    <div class="advanages-item">
+                        <div class="advantages-title">
+                            Комфортно
+                        </div>
+                        <div class="advantages-decription">
+                            Вы можете сделать тест в любое время в комфортной обстановке, не тратя нервы и время на посещение больницы.
+                        </div>
+                    </div>
+                    <div class="advanages-item">
+                        <div class="advantages-title">
+                            Быстро
+                        </div>
+                        <div class="advantages-decription">
+                            Мы заказываем для вас курьера, чтобы тест быстро отправлялся в лабораторию. Вы получите результат за 5 рабочих дней из лаборатории, постараемся быстрее.
+                        </div>
+                    </div>
+                    <div class="advanages-item">
+                        <div class="advantages-title">
+                            Результативно
+                        </div>
+                        <div class="advantages-decription">
+                            Вы сможете отслеживать результат “до-после” с помощью второго теста.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="select-test">
+                <div class="test-card">
+                    <div class="card-img-wrp"><img src="./img/product1.jpg" alt=""></div>
+                    <div class="card-description">
+                        <p>
+                            <span>О!пределяйте</span> свой уровень омега-3 с помощью простого теста
+                        </p>
+                        <p>
+                            <span>О!птимизируйте</span> ресурсное состояние организма с помощью советов нашего эксперта и эффективных продуктов от VILAVI
+                        </p>
+                    </div>
+                    <a href="https://store.vilavi.com/Item/62366" class="buy-btn">Купить</a>
+                </div>
+
+                <div class="test-card">
+                    <div class="card-img-wrp"><img src="./img/product2.jpg" alt=""></div>
+                    <div class="card-description">
+                        <p>
+                            <span>О!пределяйте</span> свой уровень омега-3 с помощью простого теста
+                        </p>
+                        <p>
+                            <span>О!птимизируйте</span> ресурсное состояние организма с помощью советов нашего эксперта и эффективных продуктов от VILAVI
+                        </p>
+                        <p>
+                            <span>О!тслеживайте</span> свое состояние в динамике (в наборе второй тест для контроля результата “до-после”)
+                        </p>
+                        <p>
+                            <span>О!мега-3</span> получайте в подарок и принимайте их сразу, чтобы поддерживать оптимальный уровень омега-3
+                        </p>
+                    </div>
+                    <a href="https://shop.vilavi.com/Item/62396" class="buy-btn">Купить</a>
+                </div>
+            </div>
+            
             <div class="stages">
                 <div class="stages-title">Этапы проведения O! Test</div>
                 <div class="stages-wrp">
@@ -328,7 +425,7 @@
                             <img src="./img/1.svg" alt="" class="stage-icon">
                         </div>
                         <div class="stage-title">
-                            1. Вы делаете анализ в комфортной обстановке
+                            1. Сделаете анализ в комфортной обстановке
                         </div>
                         <div class="stage-description">
                             В наборе есть все необходимое для того, чтобы сделать тест. Анализ проводится с использованием специально подготовленной тест полоски, позволяющей хранить и транспортировать “сухую кровь” в лабораторию. Вы самостоятельно собираете кровь на тест полоску в удобное время.
@@ -339,10 +436,10 @@
                             <img src="./img/2.svg" alt="" class="stage-icon">
                         </div>
                         <div class="stage-title">
-                            2. Мы вызываем курьера в удобное время
+                            2. Вызовем курьера в удобное время
                         </div>
                         <div class="stage-description">
-                            Бесплатно вызываем вам курьера и далее анализ передается в лабораторию где производится исследование (190013, г. Санткт-Петербург, Московский проспект, д. 22 л, пом. 25-н, комн. 1.)
+                            Бесплатно вызываем вам курьера и далее анализ передается в лабораторию где производится исследование
                         </div>
                     </div>
                     <div class="stage" data-type="card" data-side="front">
@@ -361,7 +458,7 @@
                             <img src="./img/4.svg" alt="" class="stage-icon">
                         </div>
                         <div class="stage-title">
-                            4. Мы отправляем персональный протокол коррекции
+                            4. Получаете персональный протокол коррекции
                         </div>
                         <div class="stage-description">
                             Данные, полученные в ходе исследования, являются основным критерием для выбора оптимального протокола приема продуктов для коррекции Омега-3.
@@ -390,21 +487,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="video-instruction-wrp">
+                    <a href="https://www.youtube.com/watch?v=yB69tgtX53I" target="_blank" class="video-instruction-btn">Смотреть инструкцию</a>
+                </div>
             </div>
 
-            <div class="video-instruction">
+            <!-- <div class="video-instruction">
                 <div class="video-instruction-title">
                     Видео-инструкция:
                 </div>
                 <div class="video-block" data-type="videoWrp">
-                    <!-- <iframe class="video-frame" id="mainVideo" src="https://www.youtube.com/embed/HBABteBYpMo" frameborder="0" style="max-width: 100%" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                    <iframe class="video-frame" id="mainVideo" src="https://www.youtube.com/embed/HBABteBYpMo" frameborder="0" style="max-width: 100%" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <video controls preload="metadata" class="video-frame" id="videoInstruction" data-type="video">
                         <source src="/src/video/flowers.mp4" type="video/mp4" />
                     </video>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="correction-programs" id="programs">
+            <!-- <div class="correction-programs" id="programs">
                 <div class="programs-title-wrp">
                     <div class="programs-title">Программы коррекции</div>
                     <div class="programs-subtitle">Достижение желательного уровня омега-3 индекса возможно путем изменения рациона.</div>
@@ -423,6 +523,66 @@
                         </label>
                     </div>
                     <button class="programs-result-btn" id="programsResultBtn">Подобрать протокол коррекции</button>
+                </div>
+            </div> -->
+
+            <div class="after-test-block" id="optimize">
+                <div class="after-test-block-title">
+                    Что получишь после теста?
+                </div>
+                <div class="after-test-item">
+                    <div class="after-test-item-title">
+                        Отчет из лаборатории
+                    </div>
+                    <div class="after-test-item-description">
+                        Отчет из лаборатории — результат O! Test, в котором вы найдете точные цифровые показатели, по которым можно оценить риск сердечно-сосудистых заболеваний, уровень провоспалительной готовности организма, сбалансированность питания и иммунный ответ организма.
+                    </div>
+                    <div class="download-example-wrp">
+                        <a class="download-example" href="./img/otest-example.pdf" target="_blank">
+                            <img src="./img/download-icon.svg" alt="" class="download-icon">
+                            &nbsp;Скачать пример
+                        </a>
+                    </div>
+                </div>
+
+                <div class="after-test-item">
+                    <div class="after-test-item-title">
+                        Программа коррекции
+                    </div>
+                    <div class="after-test-item-description">
+                        Программа коррекции — синергия функциональных продуктов VILAVI и рекомендаций по улучшению образа жизни, составленных вместе с экспертами для улучшения ресурсного состояния организма.
+                    </div>
+                </div>
+
+                <div class="programs-result-wrp">
+                    <!-- <div class="programs-result-title">Получили результат омега-3 индекса?</div> -->
+                    <div class="programs-result-content">Введите свой результат и мы подберем программу коррекции</div>
+                    <div class="programs-result-input">
+                        <label for="omegaIndex" class="programs-result-input-label">
+                            <div>Мой омега-3 индекс</div>
+                            <div><input id="omegaIndex" class="omega-index-input" type="number" min="0" max="100" step="0.1"/> %</div>
+                        </label>
+                    </div>
+                    <button class="programs-result-btn" id="programsResultBtn">Подобрать протокол коррекции</button>
+                </div>
+            </div>
+
+            <div class="our-principle-block" id="retesting">
+                <div class="our-principle-block-title">
+                    Наш принцип — "управлять можно тем, что можно измерить".
+                </div>
+
+                <div class="our-principle-block-content">
+                    <p>
+                        Чтобы управлять своим самочувствием, повторите тестирование после программы коррекции.
+                    </p>
+                    <p>
+                        Так вы сможете наблюдать за динамикой важнейших показателей здоровья и оценить положительное влияние продуктов VILAVI на эти показатели.
+                    </p>
+                </div>
+
+                <div id="rounded-corners-item" class="rounded-corners-item">
+                    Даже если вы чувствуете себя отлично и не замечаете каких-либо проблем со здоровьем, проводите чекап 2 раз в год, чтобы не пропустить риск ухудшения самочувствия !
                 </div>
             </div>
 
@@ -519,6 +679,6 @@
 
         </div>
 
-        <script src="index.js?10"></script>
+        <script src="index.js?17"></script>
     </body>
 </html>

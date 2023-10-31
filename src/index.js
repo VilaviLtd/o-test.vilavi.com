@@ -9,25 +9,32 @@ if (ref) {
     }
 }
 /* запись рефки в куки */
-
+// const oneRem =  Number((body.style.fontSize).replace('px', ''));
 const pageContainer = document.querySelector('#pageContainer');
+const videoWrp = pageContainer.querySelector('#videoWrp');
+const video1 = videoWrp.querySelector('#video1');
+resizeVideoFrame();
 const header = document.querySelector('#testHeader');
 const navigation = header.querySelector('#navigation');
 const burger = header.querySelector('#burger');
 burger.setAttribute('data-state', 'close'); // initial state
 const mobileMaxWidth = 768; //px
-const burgerSuscribersFns = [];
-burgerSuscribersFns.push(mobileNavigationHandler);
+const burgerSubscribersFns = [];
+burgerSubscribersFns.push(mobileNavigationHandler);
 const contentElements = document.querySelectorAll('.content-block .content');
+const roundedCornersItem = pageContainer.querySelector('#rounded-corners-item');
+addRoudedCornersForElement(roundedCornersItem, { tLeft: true, bRight: true });
 const pretestingForm = pageContainer.querySelector('#pretestingForm');
 pretestingForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formData = new FormData(pretestingForm);
-    let keysCount = 0;
-    for(const key of formData.keys()) {
-        keysCount++;
+    let formData = new FormData(pretestingForm);
+    let values = [];
+    for(const [key, value] of formData) {
+        if (key !== 'age' && key !== 'gender') {
+            values.push(value);
+        }
     }
-    openModal('pretesting', { index: keysCount });
+    openModal('pretesting', { age: formData.get('age'), gender: formData.get('gender'),  problemsListKeys: values});
 });
 const programsResultBtn = pageContainer.querySelector('#programsResultBtn');
 programsResultBtn.addEventListener('click', () => {
@@ -37,6 +44,12 @@ programsResultBtn.addEventListener('click', () => {
 const stagesWrp = pageContainer.querySelector('.stages-wrp');
 const stages = Array.from(stagesWrp.querySelectorAll('.stage'));
 stagesWrp.addEventListener('click', stagesClickHandler);
+
+function resizeVideoFrame () {
+    const { width } = videoWrp.getBoundingClientRect();
+    video1.setAttribute('width', width);
+    video1.setAttribute('height', (width) * 0.5625);
+}
 
 function stagesClickHandler(e) {    
     const { target } = e;
@@ -81,60 +94,69 @@ function stagesClickHandler(e) {
 }
 
 /* Чекбоксы предварительного тестирования */
-const checkboxWrps = document.querySelectorAll('[data-type="checkbox-wrp"]');
-checkboxWrps.forEach(ch => ch.addEventListener('click', checkboxClickHandler));
+// const checkboxWrps = document.querySelectorAll('[data-type="checkbox-wrp"]');
+// checkboxWrps.forEach(ch => ch.addEventListener('click', checkboxClickHandler));
 
-function checkboxClickHandler(e) {
-    if (this?.dataset?.type === 'checkbox-wrp') {
-        e.stopPropagation();
-        const checkbox = this.querySelector('[data-type="checkboxInput"]');
-        const annotation = this.querySelector('[data-type="annotation"]');
-        const annState = annotation.dataset.state;
-        if (checkbox) {
-            if (e.target !== checkbox) checkbox.checked = !checkbox.checked;
-            toggleAnnotaion(checkbox, annotation, annState);
-        };
-    }
-}
+// function checkboxClickHandler(e) {
+//     if (this?.dataset?.type === 'checkbox-wrp') {
+//         e.stopPropagation();
+//         const checkbox = this.querySelector('[data-type="checkboxInput"]');
+//         const annotation = this.querySelector('[data-type="annotation"]');
+//         const annState = annotation?.dataset?.state;
+//         if (checkbox) {
+//             if (e.target !== checkbox) checkbox.checked = !checkbox.checked;
+//             toggleAnnotaion(checkbox, annotation, annState);
+//         };
+//     }
+// }
 
-function toggleAnnotaion(el, annotation, annotationState) {
-    const paragraphs = annotation.querySelectorAll('p');
-    annotationState === 'close' ? showAnnotation(annotation, paragraphs): hideAnnotation(annotation, paragraphs);
-}
+// function toggleAnnotaion(el, annotation, annotationState) {
+//     const paragraphs = annotation.querySelectorAll('p');
+//     annotationState === 'close' ? showAnnotation(annotation, paragraphs): hideAnnotation(annotation, paragraphs);
+// }
 
-function showAnnotation(ann, paragraphs) {
-    paragraphs.forEach(p => p.style.display = 'block');
-    ann.style.padding = '.75rem 0';
-    ann.style.opacity = '1';
-    ann.style.height = 'auto';
-    ann.dataset.state = 'expand';
-}
+// function showAnnotation(ann, paragraphs) {
+//     paragraphs.forEach(p => p.style.display = 'block');
+//     ann.style.padding = '.75rem 0';
+//     ann.style.opacity = '1';
+//     ann.style.height = 'auto';
+//     ann.dataset.state = 'expand';
+// }
 
-function hideAnnotation(ann, paragraphs) {
-    paragraphs.forEach(p => p.style.display = 'none');
-    ann.style.padding = '0';
-    ann.style.height = '0'; 
-    ann.style.opacity = '0';
-    ann.dataset.state = 'close';
-}
+// function hideAnnotation(ann, paragraphs) {
+//     paragraphs.forEach(p => p.style.display = 'none');
+//     ann.style.padding = '0';
+//     ann.style.height = '0'; 
+//     ann.style.opacity = '0';
+//     ann.dataset.state = 'close';
+// }
 
-const checkbox = checkboxWrps[0].querySelector('[data-type="checkboxInput"]');
-const annotations = document.querySelectorAll('.test-item-annotation');
-annotations.forEach(a => a.style.marginLeft = getComputedStyle(checkbox).width);
+// const checkbox = checkboxWrps[0].querySelector('[data-type="checkboxInput"]');
+// const annotations = document.querySelectorAll('.test-item-annotation');
+// annotations.forEach(a => a.style.marginLeft = getComputedStyle(checkbox).width);
 /* /Чекбоксы предварительного тестирования */
 
 /* Модалка */
 function createModalHtml(data) {
     if (data) {
-        let modalBodyContent;
-        if (data?.imgSrc) {
-            modalBodyContent = `<image src="${data.imgSrc}" />`
-        }
-        if (data?.content) {
-            modalBodyContent = data.content;
-        }
+        // if (data?.age) {
+        //     const ageData = data.age[options.age];
+        //     const ageDataKeys = Object.keys(ageData);
+        //     const ageDataRange = ageDataKeys.find(k => Number(k) === )
+        //     result = result + ageData[options.gender];
+
+        //     const problemsListKeys = options.problemsListKeys;
+        //     problemsListKeys.forEach(k => {
+        //         result = result + data.deficiencySigns[k];
+        //     });
+
+        //     return result;
+        // }
+
         
-        return `
+        if (data?.imgSrc) {
+            const modalBodyContent = `<image src="${data.imgSrc}" />`
+            return `
             <div class="modal-container">
                 <div class="close-btn-wrp">
                     <div id="modalCloseBtn" class="modal-close-btn">
@@ -152,6 +174,23 @@ function createModalHtml(data) {
                 </div>
             </div>
         `;
+        }
+        // if (data?.content) {
+        //     modalBodyContent = data.content;
+        // }
+        
+        return `
+        <div class="modal-container">
+            <div class="close-btn-wrp">
+                <div id="modalCloseBtn" class="modal-close-btn">
+                    X
+                </div>
+            </div>
+            <div class="modal-body">
+                ${data}
+            </div>
+        </div>
+    `;
     } else {
         return `
             <div class="pretesting-modal" id="otest-modal" data-state="close"></div>
@@ -173,16 +212,32 @@ function toggleModalState() {
 
 const modalsData = {
     pretesting: {
-        '2.0': {
-            title: '0-2 признака:',
-            content: `<p>Отмеченные признаки могут говорить о том, что у вас нет дефицита омега-3. Для того, чтобы продолжать поддерживать баланс полиненасыщенных кислот - принимайте Омега-3 NASH.</p>
-            <p>А если вы хотите узнать точный показатель - пройдите тест омега-3 индекс и по его результатам вам будет подобрана программа коррекции.</p>`,
-            buttonContent: 'Узнать омега-3 индекс'
+        age: {
+            '18': {
+                'male': `<p>Хороший рацион с достаточным количеством Омега-3 жирных кислот укрепляет иммунитет и нервную систему, поддерживает здоровье кожи в подростковом периоде. Омега-3 оказывает благоприятное воздействие на умственную деятельность, концентрацию внимания и память, что облегчит обучение. Кроме того, Омега-3 помогает преодолеть тревожность и беспокойство, улучшает психоэмоциональный фон.</p>`,
+                'female': `<p>Хороший рацион с достаточным количеством Омега-3 жирных кислот укрепляет иммунитет и нервную систему, поддерживает здоровье кожи в подростковом периоде. Омега-3 оказывает благоприятное воздействие на умственную деятельность, концентрацию внимания и память, что облегчит обучение. Кроме того, Омега-3 помогает преодолеть тревожность и беспокойство, улучшает психоэмоциональный фон.</p>`
+            },
+            '40': {
+                'male': `<p>Для мужчин Омега-3 жирные кислоты необходимы для профилактики сердечно сосудистых заболеваний, которые могут появиться при повышенных физических, психологических нагрузках и стрессе. Прием Омега-3 для мужчин повышают сексуальную активность и фертильность, регулирует производство множества гормонов, в том числе и тестостерона.</p>`,
+                'female': `<p>Рацион, обогащенный омега-3 способствует нормализации гормонального фона, нормализации веса, красоте кожи, ногтей и волос. Омега-3 облегчают симптомы предменструального синдрома, а также жирные кислоты важны в период подготовки (увеличение возможности зачатия) и во время беременности (снижают риск рождения недоношенных детей, способствуют нормальному внутриутробному развитию).</p>`
+            },
+            '100': {
+                'male': `<p>Для мужчин Омега-3 жирные кислоты необходимы для профилактики сердечно сосудистых заболеваний, ишемической болезни сердца. Жирные кислоты повышают эластичность сосудов, уменьшают риск развития тромбоза. А также прием Омега-3 для мужчин улучшает состояние мочеполовой системы.Доказано, что употребление омега-3 жирных кислот уменьшает риск инсульта и деменции.</p>`,
+                'female': `<p>Жирные кислоты помогают продлить молодость кожи, снизить уровень "плохого" холестерина, они оказывают поддержку суставам, уменьшают риск проблем с сердцем, защищают от остеопороза, облегчают симптомы менопаузы. Доказано, что употребление омега-3 жирных кислот уменьшает риск инсульта и деменции.</p>`
+            }
         },
-        '10.0': {
-            title: '3-10 признаков:',
-            content: `<p>Отмеченные признаки могут говорить о том, что у вас есть дефицит омега-3. Для того, чтобы узнать точный показатель пройдите тест омега-3 индекс и по его результатам вам будет подобрана программа коррекции.</p>`,
-            buttonContent: 'Узнать омега-3 индекс'
+        deficiencySigns: {
+            hormonalImbalances: `<p>Правильный рацион, обогащенный омега-3 способствует нормализации гормонального фона</p>`,
+            weightProblems: `<p>Омега-3 способствует восстановлению правильного метаболизма и нормализации веса</p>`,
+            jointPain: `<p>Омега-3 обладает определенными свойствами, которые могут помочь при воспалении и сохранить наши суставы здоровыми. Утренняя скованность в суставах может быть показателем более низкого уровня омега-3. Получение достаточного количества омега-3 может помочь остановить воспалительные процессы, которые способствуют разрушению суставной ткани и воспалительной реакции, вызывающей боль.</p>`,
+            nervousBreakdowns: `<p>Омега-3 играют значительную роль в функциях нервной системы на протяжении всей жизни человека. Недостаток этих жирных кислот ученые связали с развитием у детей синдрома дефицита внимания и гиперактивности, а у взрослых – даже с возможностью возникновения депрессии.</p>`,
+            sleepProblems: `<p>Прием Омега-3 при бессоннице помогает наладить засыпание ночью. Полиненасыщенные жирные кислоты, а именно докозагексаеновая кислота (ДГК), способствуют выработке и поддержанию в крови уровня мелатонина — гормона сна.</p>`,
+            concentrationProblems: `<p>Если регулярно употреблять Омега-3, улучшается внимательность, память, концентрация, повышаются умственные способности. Омега-3 жизненно важны для здоровья и функционирования мозга, поэтому, если вы обнаружите, что не можете сосредоточиться или выполнить задачи, которые вы обычно могли бы выполнить без проблем, это может быть еще одним признаком дефицита омега-3.</p>`,
+            chronicFatigue: `<p>Жирные кислоты омега-3 улучшают способности к концентрации и могут уменьшить усталость</p>`,
+            bloodPressureProblems: `<p>Омега-3 жирные кислоты обладают антитромботическим эффектом, поэтому особенно важны при повышенном давлении. Они способствуют разжижению крови, борются с вредным холестерином, очищают стенки сосудов, благотворно влияют на работу сердца и способствуют нормализации давления.</p>`,
+            heartAttack: `<p>Прием омега-3 может помочь поддерживать здоровье сердца и мозга  и снизить риск развития сердечно-сосудистых заболеваний, а также профилактирует нарушения кровоснабжений головного мозга.</p>`,
+            reproductiveProblems: `<p>Омега-3 повышает шанс зачать и родить доношенного ребёнка. У женщин полиненасыщенные жирные кислоты снижают риски невынашивания и повышают шансы рождения здорового ребёнка. У мужчин улучшается качество спермы — подвижность, количество и концентрация сперматозоидов</p>`,
+            problematicHair: `<p>Жирные кислоты Омега-3 помогают в борьбе против сухости, дряблости, закрытых комедонов и других распространенных проблем дермы. Жирные кислоты омега-3 также укрепляют волосы, повышают их упругость, волосы становятся мягче и меньше ломаются. Наконец, омега-3 придает волосам блеск, ведь здоровые волосы выглядят сияющими. Также Омега-3 оказывает положительное влияние на состояние ногтей, повышая их прочность. В результате они менее склонны к расслоению и меньше ломаются.</p>`
         },
     },
     correctionPrograms: {
@@ -210,16 +265,43 @@ const modalsData = {
 }
 
 function selectModalData(name, options) {
+    console.log('options: ', options);
     const dataGroup = modalsData[name];
     const dataGroupKeys = Object.keys(dataGroup);
-    const key = dataGroupKeys.find((k, i) => {
-        // console.log('options index: ', options.index)
-        // console.log('key: ', k)
-        if (name === 'correctionPrograms' && (i === dataGroupKeys.length - 1)) {
-            return options.index >= parseFloat(k);
+
+    if (name === 'pretesting') {
+        let htmlData = '';
+        const ageData = dataGroup.age;
+        const ageDataKeys = Object.keys(ageData);
+        const ageDataRangeKey = ageDataKeys.find(k => Number(options.age) < Number(k));
+        const ageDataRange = ageData[ageDataRangeKey];
+        htmlData = htmlData + ageDataRange[options.gender];
+
+        if (options?.problemsListKeys.length > 0) {
+            const problemsListKeys = options?.problemsListKeys;
+            const deficiencySigns = dataGroup.deficiencySigns;
+            problemsListKeys.forEach(key => {
+                htmlData = htmlData + (deficiencySigns[key]);
+            });
+            htmlData = htmlData + `
+            <p>Отмеченные признаки могут говорить о том, что у вас есть риск дефицита омега-3. Для того, чтобы узнать точный показатель пройдите тест омега-3 индекс и по его результатам вам будет подобрана персональная программа коррекции.</p>`;
         }
-        return options.index <= parseFloat(k);
-    });
+
+        return htmlData;
+    }
+
+    let key;
+    if (options) {
+        key = dataGroupKeys.find((k, i) => {
+            console.log('k: ', k);
+            if (name === 'correctionPrograms' && (i === dataGroupKeys.length - 1)) {
+                return options.index >= parseFloat(k);
+            }
+            return options.index <= parseFloat(k);
+        });
+        console.log('key: ', key);
+    }
+
     return dataGroup[key];
 }
 
@@ -228,7 +310,8 @@ function fillModal(modal, data) {
 }
 
 function openModal(name, options) {
-    const data = selectModalData(name, options);
+    const data = selectModalData(name, options); 
+    console.log(modal)
     modal.insertAdjacentHTML('beforeend', createModalHtml(data));
     const modalCloseBtn = modal.querySelector('#modalCloseBtn');
     modalCloseBtn.addEventListener('click', closeModal);
@@ -407,12 +490,12 @@ function addRoudedCornersForElement(el, corners, offset = 0) {
 }
 
 contentElements.forEach(el => addRoudedCornersForElement(el, { tLeft: true, bRight: true }));
-const interestingFact = pageContainer.querySelector('[data-style="four-corners"]');
-addRoudedCornersForElement(interestingFact, { tLeft: true, tRight: true, bLeft: true, bRight: true });
+//const interestingFact = pageContainer.querySelector('[data-style="four-corners"]');
+// addRoudedCornersForElement(interestingFact, { tLeft: true, tRight: true, bLeft: true, bRight: true });
 /* /Скругленные углы */
 
 /* Бургер */
-function emitBurgerState() { burgerSuscribersFns.forEach(fn => fn()); }
+function emitBurgerState() { burgerSubscribersFns.forEach(fn => fn()); }
 
 function getScreenWidth() { return window.screen.availWidth; }
 
@@ -504,6 +587,7 @@ function debounce(func, timeout) {
 
 const resizeHandler = () => {
     renderActualNavigation();
+    resizeVideoFrame();
 };
 
 function start() {
