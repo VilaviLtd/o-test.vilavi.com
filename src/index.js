@@ -148,7 +148,7 @@ function createModalHtml(data) {
                     ${modalBodyContent}
                 </div>
                 <div class="link-btn-wrp">
-                    <a href="" class="link-btn">${data.buttonContent}</a>
+                    <a href="https://shop.vilavi.com/" target="_blank" class="link-btn">${data.buttonContent}</a>
                 </div>
             </div>
         `;
