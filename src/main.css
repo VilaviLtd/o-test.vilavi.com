@@ -406,6 +406,7 @@ fieldset {
     width: 40%;
     max-height: 100vh;
     overflow-y: scroll;
+    scrollbar-width: none;
     background-color: #fff;
     border: none;
     border-radius: var(--common-border-radius);
@@ -413,6 +414,10 @@ fieldset {
     flex-direction: column;
     padding-bottom: 2rem;
     font-size: .9rem;
+}
+
+.modal-container::-webkit-scrollbar {
+    display: none;
 }
 
 .modal-title,
