@@ -403,7 +403,9 @@ fieldset {
 }
 
 .modal-container {
-    width: 30%;
+    width: 40%;
+    max-height: 100vh;
+    overflow-y: scroll;
     background-color: #fff;
     border: none;
     border-radius: var(--common-border-radius);
