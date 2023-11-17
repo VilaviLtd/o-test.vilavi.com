@@ -39,7 +39,9 @@ pretestingForm.addEventListener('submit', (e) => {
 const programsResultBtn = pageContainer.querySelector('#programsResultBtn');
 programsResultBtn.addEventListener('click', () => {
     const index = pageContainer.querySelector('#omegaIndex').value;
-    openModal('correctionPrograms', { index });
+    if (index) {
+        openModal('correctionPrograms', { index });
+    }
 })
 const stagesWrp = pageContainer.querySelector('.stages-wrp');
 const stages = Array.from(stagesWrp.querySelectorAll('.stage'));
@@ -170,7 +172,7 @@ function createModalHtml(data) {
                     ${modalBodyContent}
                 </div>
                 <div class="link-btn-wrp">
-                    <a href="https://shop.vilavi.com/" target="_blank" class="link-btn">${data.buttonContent}</a>
+                    <a href="https://shop.vilavi.com/Item/${data.programId}" target="_blank" class="link-btn">${data.buttonContent}</a>
                 </div>
             </div>
         `;
@@ -244,28 +246,31 @@ const modalsData = {
         '3.9': {
             title: 'Индекс меньше 4,0 % Высокий риск',
             imgSrc: './img/high-risk.jpg',
-            buttonContent: 'Купить протокол коррекции'
+            buttonContent: 'Купить протокол коррекции',
+            programId: 67636
         },
         '5.9': {
             title: 'Индекс 4-5,9% Риск выше среднего',
             imgSrc: './img/above-average-risk.jpg',
-            buttonContent: 'Купить протокол коррекции'
+            buttonContent: 'Купить протокол коррекции',
+            programId: 67616
         },
         '7.9': {
             title: 'Индекс от 6 до 7,9 % Средний риск',
             imgSrc: './img/average-risk.jpg',
-            buttonContent: 'Купить протокол коррекции'
+            buttonContent: 'Купить протокол коррекции',
+            programId: 67596
         },
         '8.0': {
             title: 'Индекс больше 8% Низкий риск',
             imgSrc: './img/low-risk.jpg',
-            buttonContent: 'Купить протокол коррекции'
+            buttonContent: 'Купить протокол коррекции',
+            programId: 67576
         }
     }
 }
 
 function selectModalData(name, options) {
-    console.log('options: ', options);
     const dataGroup = modalsData[name];
     const dataGroupKeys = Object.keys(dataGroup);
 
@@ -293,13 +298,11 @@ function selectModalData(name, options) {
     let key;
     if (options) {
         key = dataGroupKeys.find((k, i) => {
-            console.log('k: ', k);
             if (name === 'correctionPrograms' && (i === dataGroupKeys.length - 1)) {
                 return options.index >= parseFloat(k);
             }
             return options.index <= parseFloat(k);
         });
-        console.log('key: ', key);
     }
 
     return dataGroup[key];
@@ -310,8 +313,7 @@ function fillModal(modal, data) {
 }
 
 function openModal(name, options) {
-    const data = selectModalData(name, options); 
-    console.log(modal)
+    const data = selectModalData(name, options);
     modal.insertAdjacentHTML('beforeend', createModalHtml(data));
     const modalCloseBtn = modal.querySelector('#modalCloseBtn');
     modalCloseBtn.addEventListener('click', closeModal);
