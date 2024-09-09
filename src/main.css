@@ -1597,6 +1597,15 @@ div[data-style="four-corners"] {
   border-radius: 15px;
 }
 
+.--active {
+  display: block;
+}
+
+.--disactive {
+  display: none;
+}
+
+
 .modal-close {
   cursor: pointer;
   position: absolute;
@@ -1608,7 +1617,6 @@ div[data-style="four-corners"] {
   justify-content: center;
   align-items: center;
 }
-
 
 .modal-container .modal-title {
   font-size: 18px;

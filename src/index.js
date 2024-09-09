@@ -599,7 +599,22 @@ function start() {
 
 start();
 
+//Модальное окно Start
+const modalSection = document.querySelector('.modal-section');
 const modalContainer = document.querySelector('.modal-container');
-const modalClose = document.querySelector('.modal-close');
-const btnTrue = document.querySelector('.modal-button__true');
 const btnChange = document.querySelector('.modal-button__change');
+
+modalSection.addEventListener('click', (elem) => {
+    const event = elem.target;
+
+    if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true')) {
+        modalSection.classList.add('--disactive');
+        modalSection.classList.remove('--active');
+    }
+});
+
+btnChange.addEventListener('click', () => {
+
+});
+
+//Модальное окно End
