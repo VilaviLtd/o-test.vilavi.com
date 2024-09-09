@@ -1576,7 +1576,7 @@ div[data-style="four-corners"] {
   }
 }
 
-/*Модальное окно*/
+/*Модальное окно первое*/
 
 .modal-section {
   position: fixed;
@@ -1654,4 +1654,69 @@ div[data-style="four-corners"] {
 
 .modal-button__change {
   color: #000;
+}
+
+/*Модальное окно второе*/
+.modal-change-container {
+  width: 345px;
+  padding: 30px;
+  position: relative;
+  border-radius: 15px;
+  background: #fff;
+}
+
+.modal-region-close {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-region {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.country-button {
+  cursor: pointer;
+  padding: 11px 15px 15px 15px;
+  border: 1px solid #9E28B5;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  transition: 0.3s ease all;
+}
+
+  .country-button:hover {
+    background: #9E28B5;
+    color: #fff;
+  }
+
+.modal-region .region-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.country--active {
+  color: #9E28B5;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal-country__container {
+  margin: 30px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }

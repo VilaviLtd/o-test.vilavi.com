@@ -602,19 +602,23 @@ start();
 //Модальное окно Start
 const modalSection = document.querySelector('.modal-section');
 const modalContainer = document.querySelector('.modal-container');
+const modalRegion = document.querySelector('.modal-change-container');
 const btnChange = document.querySelector('.modal-button__change');
 
 modalSection.addEventListener('click', (elem) => {
     const event = elem.target;
 
-    if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true')) {
+    if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true') || event.classList.contains('modal-region-close')) {
         modalSection.classList.add('--disactive');
         modalSection.classList.remove('--active');
     }
 });
 
 btnChange.addEventListener('click', () => {
-
+    modalContainer.classList.remove('--active');
+    modalContainer.classList.add('--disactive');
+    modalRegion.classList.remove('--disactive');
+    modalRegion.classList.add('--active');
 });
 
 //Модальное окно End
