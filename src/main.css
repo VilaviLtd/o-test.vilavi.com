@@ -633,11 +633,15 @@ fieldset {
     text-decoration: none;
   }
 
-.stages {
+.stages--active {
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 2rem;
+}
+
+.stages--disactive {
+  display: none;
 }
 
 .stages-title {
@@ -1367,27 +1371,6 @@ div[data-style="four-corners"] {
     width: 100%;
   }
 
-  .stages__container {
-  }
-
-  .stage__other-countries {
-    display: flex;
-  }
-
-  .stage-icon__container {
-    width: 50%;
-  }
-
-  stage-icon__container .stage-icon {
-    display: block;
-    width: 183px;
-    height: 183px;
-  }
-
-  .stage-country__info-block {
-    width: 50%;
-  }
-
   .programs-result-wrp {
     width: 100%;
     display: flex;
@@ -1586,8 +1569,91 @@ div[data-style="four-corners"] {
   }
 }
 
-/*Модальное окно первое*/
+.other-countries--active {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
 
+.other-countries--disactive {
+  display: none;
+}
+
+.stage__other-countries {
+  margin: 32px 0px 0px 0px;
+  display: flex;
+  gap: 34px;
+  align-items: center;
+}
+
+.stage-icon__container {
+  width: 48%;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: var(--common-border-radius);
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(158, 40, 181, 0.2);
+  -moz-box-shadow: 0px 0px 6px 0px rgba(158, 40, 181, 0.2);
+  box-shadow: 0px 0px 6px 0px rgba(158, 40, 181, 0.2);
+  transition: .35s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .stage-icon__container:hover {
+    -webkit-box-shadow: 0px 0px 8px 8px rgba(158, 40, 181, 0.3);
+    -moz-box-shadow: 0px 0px 8px 8px rgba(158, 40, 181, 0.3);
+    box-shadow: 0px 0px 8px 8px rgba(158, 40, 181, 0.3);
+  }
+
+  .stage-icon__container .stage-icon {
+    width: 183px;
+    height: 183px;
+    display: block;
+  }
+
+.stage-country__info-block {
+  width: 50%;
+}
+
+.stage-country__info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-block-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.info-block-text {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+  .info-block-text span {
+    color: #9E28B5;
+  }
+
+@media (max-width: 650px) {
+  .stage__other-countries {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .stage-icon__container {
+    width: 100%;
+  }
+
+  .stage-country__info-block {
+    width: 100%;
+  }
+}
+
+/*Модальное окно первое*/
 .modal-section {
   position: fixed;
   width: 100vw;

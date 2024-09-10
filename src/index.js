@@ -609,7 +609,8 @@ const counryButtons = document.querySelectorAll('.country-button');
 const flag = document.querySelector('.navigation-flag');
 const delivery = document.querySelector('.delivery-container');
 const advantagesBlock = document.querySelector('.advantages-block');
-
+const stagesCountries = document.querySelector('.stages-for-other-countries');
+const stagesRu = document.querySelector('.stages');
 
 //Открыть/Закрыть модальное окно
 modalSection.addEventListener('click', (elem) => {
@@ -635,7 +636,7 @@ btnChange.addEventListener('click', () => {
     modalRegion.classList.add('--active');
 });
 
-//Смена флажков при выборе страны
+//Смена флажков и блоков при выборе страны
 counryButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
         const action = event.target;
@@ -649,8 +650,12 @@ counryButtons.forEach((button) => {
             flag.src = './img/RU.svg';
             modalSection.classList.add('modal-section--disactive');
             delivery.classList.add('delivery--disactive');
-            delivery.classList.aremove('delivery--active');
+            delivery.classList.remove('delivery--active');
             advantagesBlock.style.paddingBottom = "0px";
+            stagesCountries.classList.add('other-countries--disactive');
+            stagesCountries.classList.remove('other-countries--active');
+            stagesRu.classList.add('stages--active');
+            stagesRu.classList.remove('stages--disactive');
         }
         if (button.getAttribute('data-country') == "kg") {
             flag.src = './img/KG.svg';
@@ -660,6 +665,10 @@ counryButtons.forEach((button) => {
             delivery.classList.remove('delivery--disactive');
             delivery.classList.add('delivery--active');
             advantagesBlock.style.paddingBottom = "32px";
+            stagesCountries.classList.remove('other-countries--disactive');
+            stagesCountries.classList.add('other-countries--active');
+            stagesRu.classList.remove('stages--active');
+            stagesRu.classList.add('stages--disactive');
         }
 
     })
