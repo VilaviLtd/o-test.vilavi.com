@@ -392,7 +392,8 @@
          </div>
      </div>
 
-     <?php if($region != "ru") { ?>
+ <?php if($region != "ru") { ?>
+     <!--Блок для содружественников Start-->
      <div class="delivery-container delivery--disactive">
          <div class="delivery-title">
              Бесплатная доставка!
@@ -402,7 +403,109 @@
              бесплатную доставку из России.
          </div>
      </div>
-	 <?php } ?>
+
+     <div class="stages-for-other-countries other-countries--disactive">
+         <div class="stages-title">Этапы проведения O! Test</div>
+         <div class="stages__container">
+             <div class="stage__other-countries" data-type="card" data-side="front">
+                 <div class="stage-icon__container">
+                     <img src="./img/7.svg" alt="" class="stage-icon">
+                 </div>
+                 <div class="stage-country__info-block">
+                     <div class="info-block-title">
+                         1. Закажите тест.
+                     </div>
+                     <div class="info-block-text">
+                         Обратная сторона блока: Оформите заказ из России на тест для определения уровня Омега-3. Чтобы получить бесплатную доставку, добавьте в корзину либо Сертификат О! TEST, либо 2 сертификата О! TEST и подарок. Бесплатная доставка распространяется только на эти позиции.
+                     </div>
+                 </div>
+             </div>
+             <div class="stage__other-countries" data-type="card" data-side="front">
+                 <div class="stage-icon__container">
+                     <img src="./img/1.svg" alt="" class="stage-icon">
+                 </div>
+                 <div class="stage-country__info-block">
+                     <div class="info-block-title">
+                         2. Сделайте анализ в комфортной обстановке.
+                     </div>
+                     <div class="info-block-text">
+                         Обратная сторона блока: В наборе есть все необходимое для того, чтобы сделать тест. Анализ проводится с использованием специально подготовленной тест полоски, позволяющей хранить и транспортировать “сухую кровь” в лабораторию. Вы самостоятельно собираете кровь на тест полоску в удобное время.
+                     </div>
+                 </div>
+             </div>
+             <div class="stage__other-countries" data-type="card" data-side="front">
+                 <div class="stage-icon__container">
+                     <img src="./img/3.svg" alt="" class="stage-icon">
+                 </div>
+                 <div class="stage-country__info-block">
+                     <div class="info-block-title">
+                         3. Подготовьте тест для отправки.
+                     </div>
+                     <div class="info-block-text">
+                         Обратная сторона блока:<br>Упакуйте его плотно и надежно.
+                     </div>
+                 </div>
+             </div>
+             <div class="stage__other-countries" data-type="card" data-side="front">
+                 <div class="stage-icon__container">
+                     <img src="./img/8.svg" alt="" class="stage-icon">
+                 </div>
+                 <div class="stage-country__info-block">
+                     <div class="info-block-title">
+                         5. Получите результат по Email.
+                     </div>
+                     <div class="info-block-text">
+                         Обратная сторона блока:<br>Ожидайте результат на ваш Email.
+                     </div>
+                 </div>
+             </div>
+             <div class="stage__other-countries" data-type="card" data-side="front">
+                 <div class="stage-icon__container">
+                     <img src="./img/4.svg" alt="" class="stage-icon">
+                 </div>
+                 <div class="stage-country__info-block">
+                     <div class="info-block-title">
+                         6. Выберите протокол на основе полученного результата.
+                     </div>
+                     <div class="info-block-text">
+                         Обратная сторона блока: Данные, полученные в ходе исследования, являются основным критерием для выбора оптимального протокола приема продуктов для коррекции Омега-3.
+                     </div>
+                 </div>
+             </div>
+             <div class="stage__other-countries" data-type="card" data-side="front">
+                 <div class="stage-icon__container">
+                     <img src="./img/5.svg" alt="" class="stage-icon">
+                 </div>
+                 <div class="stage-country__info-block">
+                     <div class="info-block-title">
+                         7. Корректируйте уровень Омега-3.
+                     </div>
+                     <div class="info-block-text">
+                         Обратная сторона блока: Принимайте продукты, рекомендованные в протоколе коррекции.
+                     </div>
+                 </div>
+             </div>
+             <div class="stage__other-countries" data-type="card" data-side="front">
+                 <div class="stage-icon__container">
+                     <img src="./img/6.svg" alt="" class="stage-icon">
+                 </div>
+                 <div class="stage-country__info-block">
+                     <div class="info-block-title">
+                         8. Отслеживайте результаты в динамике.
+                     </div>
+                     <div class="info-block-text">
+                         Повторяйте тесты для отслеживания динамики и достижения оптимального уровня Омега-3.
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="video-instruction-wrp">
+             <a href="https://www.youtube.com/watch?v=yB69tgtX53I" target="_blank" class="video-instruction-btn">Смотреть инструкцию</a>
+         </div>
+     </div>
+     <!--Блок для содружественников End-->
+
+ <?php } else { ?>
 
      <div class="select-test">
          <div class="test-card">
@@ -513,109 +616,7 @@
          </div>
      </div>
 
-     <?php if($region != "ru") { ?>
-     <!--Блок для содружественников Start-->
-     <div class="stages-for-other-countries other-countries--disactive">
-         <div class="stages-title">Этапы проведения O! Test</div>
-         <div class="stages__container">
-             <div class="stage__other-countries" data-type="card" data-side="front">
-                 <div class="stage-icon__container">
-                     <img src="./img/7.svg" alt="" class="stage-icon">
-                 </div>
-                 <div class="stage-country__info-block">
-                     <div class="info-block-title">
-                         1. Закажите тест.
-                     </div>
-                     <div class="info-block-text">
-                         Обратная сторона блока: Оформите заказ из России на тест для определения уровня Омега-3. Чтобы получить бесплатную доставку, добавьте в корзину либо Сертификат О! TEST, либо 2 сертификата О! TEST и подарок. Бесплатная доставка распространяется только на эти позиции.
-                     </div>
-                 </div>
-             </div>
-             <div class="stage__other-countries" data-type="card" data-side="front">
-                 <div class="stage-icon__container">
-                     <img src="./img/1.svg" alt="" class="stage-icon">
-                 </div>
-                 <div class="stage-country__info-block">
-                     <div class="info-block-title">
-                         2. Сделайте анализ в комфортной обстановке.
-                     </div>
-                     <div class="info-block-text">
-                         Обратная сторона блока: В наборе есть все необходимое для того, чтобы сделать тест. Анализ проводится с использованием специально подготовленной тест полоски, позволяющей хранить и транспортировать “сухую кровь” в лабораторию. Вы самостоятельно собираете кровь на тест полоску в удобное время.
-                     </div>
-                 </div>
-             </div>
-             <div class="stage__other-countries" data-type="card" data-side="front">
-                 <div class="stage-icon__container">
-                     <img src="./img/3.svg" alt="" class="stage-icon">
-                 </div>
-                 <div class="stage-country__info-block">
-                     <div class="info-block-title">
-                         3. Подготовьте тест для отправки.
-                     </div>
-                     <div class="info-block-text">
-                         Обратная сторона блока:<br>Упакуйте его плотно и надежно.
-                     </div>
-                 </div>
-             </div>
-             <div class="stage__other-countries" data-type="card" data-side="front">
-                 <div class="stage-icon__container">
-                     <img src="./img/8.svg" alt="" class="stage-icon">
-                 </div>
-                 <div class="stage-country__info-block">
-                     <div class="info-block-title">
-                         5. Получите результат по Email.
-                     </div>
-                     <div class="info-block-text">
-                         Обратная сторона блока:<br>Ожидайте результат на ваш Email.
-                     </div>
-                 </div>
-             </div>
-             <div class="stage__other-countries" data-type="card" data-side="front">
-                 <div class="stage-icon__container">
-                     <img src="./img/4.svg" alt="" class="stage-icon">
-                 </div>
-                 <div class="stage-country__info-block">
-                     <div class="info-block-title">
-                         6. Выберите протокол на основе полученного результата.
-                     </div>
-                     <div class="info-block-text">
-                         Обратная сторона блока: Данные, полученные в ходе исследования, являются основным критерием для выбора оптимального протокола приема продуктов для коррекции Омега-3.
-                     </div>
-                 </div>
-             </div>
-             <div class="stage__other-countries" data-type="card" data-side="front">
-                 <div class="stage-icon__container">
-                     <img src="./img/5.svg" alt="" class="stage-icon">
-                 </div>
-                 <div class="stage-country__info-block">
-                     <div class="info-block-title">
-                         7. Корректируйте уровень Омега-3.
-                     </div>
-                     <div class="info-block-text">
-                         Обратная сторона блока: Принимайте продукты, рекомендованные в протоколе коррекции.
-                     </div>
-                 </div>
-             </div>
-             <div class="stage__other-countries" data-type="card" data-side="front">
-                 <div class="stage-icon__container">
-                     <img src="./img/6.svg" alt="" class="stage-icon">
-                 </div>
-                 <div class="stage-country__info-block">
-                     <div class="info-block-title">
-                         8. Отслеживайте результаты в динамике.
-                     </div>
-                     <div class="info-block-text">
-                         Повторяйте тесты для отслеживания динамики и достижения оптимального уровня Омега-3.
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="video-instruction-wrp">
-             <a href="https://www.youtube.com/watch?v=yB69tgtX53I" target="_blank" class="video-instruction-btn">Смотреть инструкцию</a>
-         </div>
-     </div>
-     <!--Блок для содружественников End-->
-	 <?php } ?>
+ <?php } ?>
 
      <!-- <div class="video-instruction">
         <div class="video-instruction-title">
