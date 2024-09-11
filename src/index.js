@@ -4,10 +4,43 @@ const ref = params.get('ref');
 if (ref) {
     const refRegExp = /^\d+$/;
     if (refRegExp.test(ref)) {
-        let date = new Date(Date.now() + 31557600e3);
-        document.cookie = `ref=${ref}; expires=${date}`;
+        const expiryDate = new Date(Date.now() + 31557600e3); // год
+        document.cookie = `ref=${ref}; expires=${expiryDate}`;
     }
 }
+
+/* проверка региона в куках */
+function getCookieValue(name) {
+    const regex = new RegExp(`(^| )${name}=([^;]+)`);
+    const match = document.cookie.match(regex);
+
+    if (match) {
+        return match[2];
+    }
+}
+
+function setCookieValue(name, value, expiryDate) {
+    document.cookie = `${name}=${value}; expires=${expiryDate}`;
+}
+
+function regionCookieHandler() {
+    const name = 'region';
+    const value = getCookieValue(regionCookieName);
+    const expiryDate = 1209600e3; //14 дней
+
+    if (value) {
+        // перезаписываем значение
+        setCookieValue(name, value, expiryDate);
+    } else {
+        // TODO: показываем модалку с выбором региона,
+        // получаем значение региона,
+        // записываем значение в куки.
+    }
+}
+
+regionCookieHandler();
+/* проверка региона в куках */
+
 /* запись рефки в куки */
 // const oneRem =  Number((body.style.fontSize).replace('px', ''));
 const pageContainer = document.querySelector('#pageContainer');
