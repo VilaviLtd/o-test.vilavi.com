@@ -19,7 +19,7 @@ if (refVal) {
 function getCookieValue(name) {
     const regex = new RegExp(`(^| )${name}=([^;]+)`);
     const match = document.cookie.match(regex);
-    
+
     if (match) {
         return match[2];
     }
@@ -31,6 +31,91 @@ function regionCookieHandler() {
 
     if (!value) {
         // открываем модалку с выбором региона тут.
+        //Модальное окно Start
+        const modalSection = document.querySelector('.modal-section');
+        const modalContainer = document.querySelector('.modal-container');
+        const modalRegion = document.querySelector('.modal-change-container');
+        const btnChange = document.querySelector('.modal-button__change');
+        const btnFlag = document.querySelector('.navigation-item__flag-box');
+        const counryButtons = document.querySelectorAll('.country-button');
+        const flag = document.querySelector('.navigation-flag');
+        const delivery = document.querySelector('.delivery-container');
+        const advantagesBlock = document.querySelector('.advantages-block');
+        const stagesCountries = document.querySelector('.stages-for-other-countries');
+        const stagesRu = document.querySelector('.stages');
+
+        //Открыть/Закрыть модальное окно
+        modalSection.addEventListener('click', (elem) => {
+            const event = elem.target;
+
+            if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true') || event.classList.contains('modal-region-close')) {
+                modalSection.classList.add('modal-section--disactive');
+                modalSection.classList.remove('modal-section--active');
+            }
+        });
+
+        //Запуск модального окна при клике на иконку с флагами в шапке
+        btnFlag.addEventListener('click', () => {
+            modalSection.classList.remove('modal-section--disactive');
+            modalSection.classList.add('modal-section--active');
+        });
+
+        //Открытие второго модального окна с выбором регионов
+        btnChange.addEventListener('click', () => {
+            modalContainer.classList.remove('--active');
+            modalContainer.classList.add('--disactive');
+            modalRegion.classList.remove('--disactive');
+            modalRegion.classList.add('--active');
+        });
+
+        //Смена флажков и блоков при выборе страны
+        counryButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                const action = event.target;
+                disabledNav(counryButtons);
+                action.classList.add('country--active');
+                if (button.getAttribute('data-country') == "kz") {
+                    flag.src = './img/KZ.svg';
+                    modalSection.classList.add('modal-section--disactive');
+                }
+                if (button.getAttribute('data-country') == "ru") {
+                    flag.src = './img/RU.svg';
+                    modalSection.classList.add('modal-section--disactive');
+                    delivery.classList.add('delivery--disactive');
+                    delivery.classList.remove('delivery--active');
+                    advantagesBlock.style.paddingBottom = "0px";
+                    stagesCountries.classList.add('other-countries--disactive');
+                    stagesCountries.classList.remove('other-countries--active');
+                    stagesRu.classList.add('stages--active');
+                    stagesRu.classList.remove('stages--disactive');
+                }
+                if (button.getAttribute('data-country') == "kg") {
+                    flag.src = './img/KG.svg';
+                    modalSection.classList.add('modal-section--disactive');
+                }
+                if (button.getAttribute('data-country') != "ru") {
+                    delivery.classList.remove('delivery--disactive');
+                    delivery.classList.add('delivery--active');
+                    advantagesBlock.style.paddingBottom = "32px";
+                    stagesCountries.classList.remove('other-countries--disactive');
+                    stagesCountries.classList.add('other-countries--active');
+                    stagesRu.classList.remove('stages--active');
+                    stagesRu.classList.add('stages--disactive');
+                }
+
+            })
+        });
+
+        //Сброс стилей у неактивных табов при клике
+        function disabledNav(blocks) {
+            blocks.forEach(function (elem) {
+                elem.classList.remove('country--active');
+            });
+        }
+
+
+        //Модальное окно End
+
     }
 }
 
@@ -627,88 +712,3 @@ function start() {
 }
 
 start();
-
-//Модальное окно Start
-const modalSection = document.querySelector('.modal-section');
-const modalContainer = document.querySelector('.modal-container');
-const modalRegion = document.querySelector('.modal-change-container');
-const btnChange = document.querySelector('.modal-button__change');
-const btnFlag = document.querySelector('.navigation-item__flag-box');
-const counryButtons = document.querySelectorAll('.country-button');
-const flag = document.querySelector('.navigation-flag');
-const delivery = document.querySelector('.delivery-container');
-const advantagesBlock = document.querySelector('.advantages-block');
-const stagesCountries = document.querySelector('.stages-for-other-countries');
-const stagesRu = document.querySelector('.stages');
-
-//Открыть/Закрыть модальное окно
-modalSection.addEventListener('click', (elem) => {
-    const event = elem.target;
-
-    if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true') || event.classList.contains('modal-region-close')) {
-        modalSection.classList.add('modal-section--disactive');
-        modalSection.classList.remove('modal-section--active');
-    }
-});
-
-//Запуск модального окна при клике на иконку с флагами в шапке
-btnFlag.addEventListener('click', () => {
-    modalSection.classList.remove('modal-section--disactive');
-    modalSection.classList.add('modal-section--active');
-});
-
-//Открытие второго модального окна с выбором регионов
-btnChange.addEventListener('click', () => {
-    modalContainer.classList.remove('--active');
-    modalContainer.classList.add('--disactive');
-    modalRegion.classList.remove('--disactive');
-    modalRegion.classList.add('--active');
-});
-
-//Смена флажков и блоков при выборе страны
-counryButtons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-        const action = event.target;
-        disabledNav(counryButtons);
-        action.classList.add('country--active');
-        if (button.getAttribute('data-country') == "kz") {
-            flag.src = './img/KZ.svg';
-            modalSection.classList.add('modal-section--disactive');
-        }
-        if (button.getAttribute('data-country') == "ru") {
-            flag.src = './img/RU.svg';
-            modalSection.classList.add('modal-section--disactive');
-            delivery.classList.add('delivery--disactive');
-            delivery.classList.remove('delivery--active');
-            advantagesBlock.style.paddingBottom = "0px";
-            stagesCountries.classList.add('other-countries--disactive');
-            stagesCountries.classList.remove('other-countries--active');
-            stagesRu.classList.add('stages--active');
-            stagesRu.classList.remove('stages--disactive');
-        }
-        if (button.getAttribute('data-country') == "kg") {
-            flag.src = './img/KG.svg';
-            modalSection.classList.add('modal-section--disactive');
-        }
-        if (button.getAttribute('data-country') != "ru") {
-            delivery.classList.remove('delivery--disactive');
-            delivery.classList.add('delivery--active');
-            advantagesBlock.style.paddingBottom = "32px";
-            stagesCountries.classList.remove('other-countries--disactive');
-            stagesCountries.classList.add('other-countries--active');
-            stagesRu.classList.remove('stages--active');
-            stagesRu.classList.add('stages--disactive');
-        }
-
-    })
-});
-
-//Сброс стилей у неактивных табов при клике
-function disabledNav(blocks) {
-    blocks.forEach(function (elem) {
-        elem.classList.remove('country--active');
-    });
-}
-
-
-//Модальное окно End
