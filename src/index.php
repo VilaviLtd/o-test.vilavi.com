@@ -1,6 +1,51 @@
 <?php
+    // регион по умолчанию
+	$defaultRegion = "ru";
+	// допустимые регионы
     $supportedRegions = array("ru", "kz", "kg");
-	$region = isset($_GET["region"]) && in_array(strtolower($_GET["region"]), $supportedRegions) ? strtolower($_GET["region"]) : "ru";
+	// время жизни куки
+	$cookieExprireTime = time() + 3600 * 24 * 30; // 30 суток
+	$cookieRegion = "";
+	// регион страницы
+	$region = $defaultRegion;
+	if(isset($_COOKIE["region"])) {
+		// есть кука
+		$cookieRegion = strtolower($_GET["region"]);
+		if(in_array($cookieRegion, $supportedRegions)) {
+			// продлеваем время жизни
+			setcookie("region", $cookieRegion, $cookieExprireTime);
+			$region = $cookieRegion;
+		} else {
+			// неизвестный регион, удаление куки
+			setcookie("region", "", time() - 3600);
+			$cookieRegion = "";
+		}
+	}
+
+	if(isset($_GET["region"])) {
+		// в запросе присутствует регион
+		$queryRegion = strtolower(trim($_GET["region"]));
+		if(in_array($queryRegion, $supportedRegions) {
+			$region = $queryRegion;
+			if($cookieRegion != $queryRegion) {
+				// регион из куки не совпадает с регионом в запросе, переустанавливаеам куку
+				setcookie("region", $queryRegion, $cookieExprireTime);
+			}
+		} else {
+			// параметре запроса какой-то неизвестный регион, перенаправляем на главную страницу
+			header("Location: https://o-test.vilavi.com");
+			die();
+		}
+	} else {
+		// в запросе нет региона
+		if($cookieRegion != "") {
+			// но регион есть в куке и он является допустимым, перенаправляем на запрос с регионом
+			if($cookieRegion != $defaultRegion) {
+				header("Location: https://o-test.vilavi.com?region=".$cookieRegion);
+			}
+			die();
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
