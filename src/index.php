@@ -25,7 +25,7 @@
 	if(isset($_GET["region"])) {
 		// в запросе присутствует регион
 		$queryRegion = strtolower(trim($_GET["region"]));
-		if(in_array($queryRegion, $supportedRegions) {
+		if(in_array($queryRegion, $supportedRegions)) {
 			$region = $queryRegion;
 			if($cookieRegion != $queryRegion) {
 				// регион из куки не совпадает с регионом в запросе, переустанавливаеам куку
