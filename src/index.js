@@ -1,11 +1,17 @@
 /* запись рефки в куки */
 const params = new URLSearchParams(document.location.search);
-const ref = params.get('ref');
-if (ref) {
+const refVal = params.get('ref');
+
+function setCookieValue(name, value, expiryDate) {
+    document.cookie = `${name}=${value}; expires=${expiryDate}`;
+}
+
+if (refVal) {
     const refRegExp = /^\d+$/;
     if (refRegExp.test(ref)) {
+        const name = 'ref';
         const expiryDate = new Date(Date.now() + 31557600e3); // год
-        document.cookie = `ref=${ref}; expires=${expiryDate}`;
+        setCookieValue(name, refVal, expiryDate);
     }
 }
 
@@ -19,20 +25,12 @@ function getCookieValue(name) {
     }
 }
 
-function setCookieValue(name, value, expiryDate) {
-    document.cookie = `${name}=${value}; expires=${expiryDate}`;
-}
-
 function regionCookieHandler() {
     const name = 'region';
     const value = getCookieValue(name);
-    const expiryDate = 1209600e3; //14 дней
 
-    if (value) {
-        // перезаписываем значение
-        setCookieValue(name, value, expiryDate);
-    } else {
-        // TODO: показываем модалку с выбором региона
+    if (!value) {
+        // открываем модалку с выбором региона тут.
     }
 }
 
