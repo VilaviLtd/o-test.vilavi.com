@@ -13,7 +13,7 @@ if (ref) {
 function getCookieValue(name) {
     const regex = new RegExp(`(^| )${name}=([^;]+)`);
     const match = document.cookie.match(regex);
-
+    
     if (match) {
         return match[2];
     }
@@ -25,7 +25,7 @@ function setCookieValue(name, value, expiryDate) {
 
 function regionCookieHandler() {
     const name = 'region';
-    const value = getCookieValue(regionCookieName);
+    const value = getCookieValue(name);
     const expiryDate = 1209600e3; //14 дней
 
     if (value) {
