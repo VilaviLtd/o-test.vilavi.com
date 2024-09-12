@@ -53,7 +53,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="main.css?13" />
+        <link rel="stylesheet" href="main_new.css?13" />
         <title>O! Test - анализ в домашних условиях</title>
         <meta name="description" content="Анализы в домашних условиях на проверку состояния организма"/>
     </head>
@@ -874,6 +874,6 @@
                 </div>
             </div>
         </div>
-        <script src="index.js?22"></script>
+        <script src="index_new.js?22"></script>
     </body>
 </html>
