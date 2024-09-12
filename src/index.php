@@ -10,14 +10,14 @@
 	$region = $defaultRegion;
 	if(isset($_COOKIE["region"])) {
 		// есть кука
-		$cookieRegion = strtolower($_GET["region"]);
+		$cookieRegion = strtolower($_COOKIE["region"]);
 		if(in_array($cookieRegion, $supportedRegions)) {
 			// продлеваем время жизни
-			setcookie("region", $cookieRegion, $cookieExprireTime);
+			setcookie("region", $cookieRegion, $cookieExprireTime, "/");
 			$region = $cookieRegion;
 		} else {
 			// неизвестный регион, удаление куки
-			setcookie("region", "", time() - 3600);
+			setcookie("region", "", time() - 3600, "/");
 			$cookieRegion = "";
 		}
 	}
@@ -29,7 +29,7 @@
 			$region = $queryRegion;
 			if($cookieRegion != $queryRegion) {
 				// регион из куки не совпадает с регионом в запросе, переустанавливаеам куку
-				setcookie("region", $queryRegion, $cookieExprireTime);
+				setcookie("region", $queryRegion, $cookieExprireTime, "/");
 			}
 		} else {
 			// параметре запроса какой-то неизвестный регион, перенаправляем на главную страницу
