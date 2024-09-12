@@ -8,7 +8,7 @@ function setCookieValue(name, value, expiryDate) {
 
 if (refVal) {
     const refRegExp = /^\d+$/;
-    if (refRegExp.test(ref)) {
+    if (refRegExp.test(refVal)) {
         const name = 'ref';
         const expiryDate = new Date(Date.now() + 31557600e3); // год
         setCookieValue(name, refVal, expiryDate);
