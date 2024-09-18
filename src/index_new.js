@@ -32,62 +32,62 @@ function regionCookieHandler() {
     if (!value) {
         // открываем модалку с выбором региона тут.
         //Модальное окно Start
-        const modalSection = document.querySelector('.modal-section');
-        const modalRegion = document.querySelector('.modal-change-container');
-        const btnFlag = document.querySelector('.navigation-item__flag-box');
-        const counryButtons = document.querySelectorAll('.country-button');
-        const flag = document.querySelector('.navigation-flag');
-        const advantagesBlock = document.querySelector('.advantages-block');
+        //const modalSection = document.querySelector('.modal-section');
+        //const modalRegion = document.querySelector('.modal-change-container');
+        //const btnFlag = document.querySelector('.navigation-item__flag-box');
+        //const counryButtons = document.querySelectorAll('.country-button');
+        //const flag = document.querySelector('.navigation-flag');
+        //const advantagesBlock = document.querySelector('.advantages-block');
 
         //Открыть/Закрыть модальное окно
-        modalSection.addEventListener('click', (elem) => {
-            const event = elem.target;
+        //modalSection.addEventListener('click', (elem) => {
+        //    const event = elem.target;
 
-            if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-region-close')) {
-                modalSection.classList.add('modal-section--disactive');
-                modalSection.classList.remove('modal-section--active');
-            }
-        });
+        //    if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-region-close')) {
+        //        modalSection.classList.add('modal-section--disactive');
+        //        modalSection.classList.remove('modal-section--active');
+        //    }
+        //});
 
         //Запуск модального окна при клике на иконку с флагами в шапке
-        btnFlag.addEventListener('click', () => {
-            modalSection.classList.remove('modal-section--disactive');
-            modalSection.classList.add('modal-section--active');
-            modalRegion.classList.remove('--disactive');
-            modalRegion.classList.add('--active');
-        });
+        //btnFlag.addEventListener('click', () => {
+        //    modalSection.classList.remove('modal-section--disactive');
+        //    modalSection.classList.add('modal-section--active');
+        //    modalRegion.classList.remove('--disactive');
+        //    modalRegion.classList.add('--active');
+        //});
 
         //Смена флажков и блоков при выборе страны
-        counryButtons.forEach((button) => {
-            button.addEventListener('click', (event) => {
-                const action = event.target;
-                disabledNav(counryButtons);
-                action.classList.add('country--active');
-                if (button.getAttribute('data-country') == "kz") {
-                    flag.src = './img/KZ.svg';
-                    modalSection.classList.add('modal-section--disactive');
-                }
-                if (button.getAttribute('data-country') == "ru") {
-                    flag.src = './img/RU.svg';
-                    modalSection.classList.add('modal-section--disactive');
-                    advantagesBlock.style.paddingBottom = "0px";
-                }
-                if (button.getAttribute('data-country') == "kg") {
-                    flag.src = './img/KG.svg';
-                    modalSection.classList.add('modal-section--disactive');
-                }
-                if (button.getAttribute('data-country') != "ru") {
-                    advantagesBlock.style.paddingBottom = "32px";
-                }
-            })
-        });
+        //counryButtons.forEach((button) => {
+        //    button.addEventListener('click', (event) => {
+        //        const action = event.target;
+        //        disabledNav(counryButtons);
+        //        action.classList.add('country--active');
+        //        if (button.getAttribute('data-country') == "kz") {
+        //            flag.src = './img/kz.svg';
+        //            modalSection.classList.add('modal-section--disactive');
+        //        }
+        //        if (button.getAttribute('data-country') == "ru") {
+        //            flag.src = './img/ru.svg';
+        //            modalSection.classList.add('modal-section--disactive');
+        //            advantagesBlock.style.paddingBottom = "0px";
+        //        }
+        //        if (button.getAttribute('data-country') == "kg") {
+        //            flag.src = './img/kg.svg';
+        //            modalSection.classList.add('modal-section--disactive');
+        //        }
+        //        if (button.getAttribute('data-country') != "ru") {
+        //            advantagesBlock.style.paddingBottom = "32px";
+        //        }
+        //    })
+        //});
 
         //Сброс стилей у неактивных табов при клике
-        function disabledNav(blocks) {
-            blocks.forEach(function (elem) {
-                elem.classList.remove('country--active');
-            });
-        }
+        //function disabledNav(blocks) {
+        //    blocks.forEach(function (elem) {
+        //        elem.classList.remove('country--active');
+        //    });
+        //}
         //Модальное окно End
 
     }

@@ -46,6 +46,8 @@
 			die();
 		}
 	}
+
+    echo "reg=".$region."<br/>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,6 +79,7 @@
  <noscript><div><img src="https://mc.yandex.ru/watch/95360051" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
  <!-- /Yandex.Metrika counter -->
  <div class="page-container" id="pageContainer">
+
      <div class="test-header" id="testHeader">
          <div class="header-logo-container">
              <img src="./img/logo.svg" alt="Логотип O! Test">
@@ -87,7 +90,13 @@
              <a href="#retesting" class="navigation-item">О!тслеживай</a>
              <a href="https://shop.vilavi.com/" target="_blank" class="navigation-item">Купить</a>
              <div class="navigation-item__flag-box">
-                 <img src="./img/RU.svg" alt="Выбор региона" class="navigation-flag" />
+              <?php if($region == "ru") { ?>
+                 <img src="./img/ru.svg" alt="Выбор региона" class="navigation-flag" />
+              <?php} if($region == "kz") { ?>
+                 <img src="./img/kz.svg" alt="Выбор региона" class="navigation-flag" />
+              <?php} else($region == "kg") { ?>
+                 <img src="./img/kg.svg" alt="Выбор региона" class="navigation-flag" /> 
+              <?php}?>
              </div>
 
          </div>
@@ -116,26 +125,6 @@
                  </div>
              </div>
          </div>
-         <!-- <div class="second-main-content-row">
-            <div class="video-block" data-type="videoWrp">
-                <iframe class="video-frame" id="mainVideo" src="https://www.youtube.com/embed/HBABteBYpMo" frameborder="0" style="max-width: 100%" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <video controls preload="metadata" class="video-frame" id="mainVideo" data-type="video">
-                    <source src="/src/video/otest1.mp4" type="video/mp4" />
-                </video>
-            </div>
-        </div>
-        <div class="third-main-content-row">
-            <div class="content-block">
-                <div class="content">
-                    Жирные кислоты омега-3 важны для бесчисленных аспектов нашего здоровья, от нейронов до клеток сердца, от сетчатки глаз до капилляров, но многие из нас не знают, как определить, получаем ли мы их достаточно. Более того, большинство ничего не знают об Омега-3.
-                </div>
-            </div>
-            <div class="content-block">
-                <div class="content">
-                    По разным данным, у <span class="main-color-text large-font-size">80 - 97%</span> населения есть дефицит омега-3 кислот!
-                </div>
-            </div>
-        </div> -->
      </div>
 
      <div class="problems-list-block">
@@ -232,30 +221,16 @@
              </p>
          </div>
      </div>
-
      <div class="pretesting" id="pretesting">
          <div class="pretesting-title">
              <div class="pretesting-title-item title">
                  Ответьте на простые вопросы и узнайте, как Омега-3 влияет на состояние вашего организма
              </div>
-             <!-- <div class="pretesting-title-item subtitle">
-                Определяем признаки дефицита омега-3
-            </div>
-            <div class="pretesting-title-item test-title">
-                <span>
-                    Какие признаки у вас есть?
-                </span>
-                <span>
-                    Отметьте все признаки, которые у вас есть.
-                </span>
-            </div> -->
          </div>
 
          <form class="pretesting-form" id="pretestingForm">
-
              <fieldset>
                  <legend>Пол</legend>
-
                  <div class="checkbox-wrp" data-type="checkbox-wrp">
                      <div class="input-label">
                          <input class="checkbox-input" type="radio" id="male" name="gender" value="male" required />
@@ -438,8 +413,8 @@
      </div>
 
  <?php if($region != "ru") { ?>
-     <!--Блок для содружественников Start-->
-     <div class="delivery-container delivery--disactive">
+      <!--Блок для содружественников Start-->
+     <div class="delivery-container delivery--active">
          <div class="delivery-title">
              Бесплатная доставка!
          </div>
@@ -448,8 +423,7 @@
              бесплатную доставку из России.
          </div>
      </div>
-
-     <div class="stages-for-other-countries other-countries--disactive">
+     <div class="stages-for-other-countries other-countries--active">
          <div class="stages-title">Этапы проведения O! Test</div>
          <div class="stages__container">
              <div class="stage__other-countries" data-type="card" data-side="front">
@@ -551,7 +525,6 @@
      <!--Блок для содружественников End-->
 
  <?php } else { ?>
-
      <div class="select-test">
          <div class="test-card">
              <div class="card-img-wrp"><img src="./img/product1.jpg" alt=""></div>
@@ -663,39 +636,6 @@
 
  <?php } ?>
 
-     <!-- <div class="video-instruction">
-        <div class="video-instruction-title">
-            Видео-инструкция:
-        </div>
-        <div class="video-block" data-type="videoWrp">
-            <iframe class="video-frame" id="mainVideo" src="https://www.youtube.com/embed/HBABteBYpMo" frameborder="0" style="max-width: 100%" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <video controls preload="metadata" class="video-frame" id="videoInstruction" data-type="video">
-                <source src="/src/video/flowers.mp4" type="video/mp4" />
-            </video>
-        </div>
-    </div> -->
-     <!-- <div class="correction-programs" id="programs">
-        <div class="programs-title-wrp">
-            <div class="programs-title">Программы коррекции</div>
-            <div class="programs-subtitle">Достижение желательного уровня омега-3 индекса возможно путем изменения рациона.</div>
-        </div>
-        <div class="programs-description-wrp">
-            <div class="programs-description">Программы коррекции — синергия функциональных продуктов VILAVI и рекомендаций по улучшению образа жизни, составленных вместе с экспертами-врачами для улучшения ресурсного состояния организма.</div>
-            <div class="programs-description" data-style="four-corners"><div class="main-color-text">Интересный факт:</div> По статистическим оценкам, повышение омега-3 индекса на 2% (от 6% до 8%) приводит к 15% снижению сердечно-сосудистых рисков.</div>
-        </div>
-        <div class="programs-result-wrp">
-            <div class="programs-result-title">Получили результат омега-3 индекса?</div>
-            <div class="programs-result-content">Введите свой результат и мы подберем программу коррекции</div>
-            <div class="programs-result-input">
-                <label for="omegaIndex" class="programs-result-input-label">
-                    <div>Мой омега-3 индекс</div>
-                    <div><input id="omegaIndex" class="omega-index-input" type="number" min="0" max="100" step="0.1"/> %</div>
-                </label>
-            </div>
-            <button class="programs-result-btn" id="programsResultBtn">Подобрать протокол коррекции</button>
-        </div>
-    </div> -->
-
      <div class="after-test-block" id="optimize">
          <div class="after-test-block-title">
              Что получишь после теста?
@@ -725,7 +665,6 @@
          </div>
 
          <div class="programs-result-wrp">
-             <!-- <div class="programs-result-title">Получили результат омега-3 индекса?</div> -->
              <div class="programs-result-content">Введите свой результат и мы подберем программу коррекции</div>
              <div class="programs-result-input">
                  <label for="omegaIndex" class="programs-result-input-label">
@@ -849,17 +788,7 @@
 
  </div>
 
-        <div class="modal-section modal-section--active">
-            <div class="modal-container --active">
-                <div class="modal-close">&#10006;</div>
-                <div class="modal-title">
-                    Ваш регион <span>Россия?</span>
-                </div>
-                <div class="modal-buttons__container">
-                    <div class="modal-button modal-button__true">Всё верно</div>
-                    <div class="modal-button modal-button__change">Сменить регион</div>
-                </div>
-            </div>
+        <div class="modal-section modal-section--disactive">
             <div class="modal-change-container --disactive">
                 <div class="modal-region">
                     <div class="modal-region-close">&#10006;</div>
@@ -868,8 +797,8 @@
                     </div>
                     <div class="modal-country__container">
                         <div data-country="ru" class="country-button country--active">Россия</div>
-                        <div data-country="kz" class="country-button ">Казахстан</div>
-                        <div data-country="kg" class="country-button ">Кыргызстан</div>
+                        <div data-country="kz" class="country-button">Казахстан</div>
+                        <div data-country="kg" class="country-button">Кыргызстан</div>
                     </div>
                 </div>
             </div>
