@@ -75,6 +75,8 @@
          webvisor:true,
          trackHash:true
     });
+
+    var region = '<?php echo $region;?>';
  </script>
  <noscript><div><img src="https://mc.yandex.ru/watch/95360051" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
  <!-- /Yandex.Metrika counter -->
