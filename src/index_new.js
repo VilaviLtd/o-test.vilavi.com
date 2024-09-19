@@ -24,30 +24,35 @@ function getCookieValue(name) {
         return match[2];
     }
 }
-
+const modalSection = document.querySelector('.modal-section');
+const modalContainer = document.querySelector('.modal-container');
+const modalRegion = document.querySelector('.modal-change-container');
+const btnChange = document.querySelector('.modal-button__change');
+const btnFlag = document.querySelector('.navigation-item__flag-box');
+const counryButtons = document.querySelectorAll('.country-button');
+const flag = document.querySelector('.navigation-flag');
+const delivery = document.querySelector('.delivery-container');
+const advantagesBlock = document.querySelector('.advantages-block');
+const stagesCountries = document.querySelector('.stages-for-other-countries');
+const stagesRu = document.querySelector('.stages');
 function regionCookieHandler() {
     const name = 'region';
     const value = getCookieValue(name);
+    console.log(value);
 
     if (!value) {
         // открываем модалку с выбором региона тут.
         //Модальное окно Start
-        //const modalSection = document.querySelector('.modal-section');
-        //const modalRegion = document.querySelector('.modal-change-container');
-        //const btnFlag = document.querySelector('.navigation-item__flag-box');
-        //const counryButtons = document.querySelectorAll('.country-button');
-        //const flag = document.querySelector('.navigation-flag');
-        //const advantagesBlock = document.querySelector('.advantages-block');
-
+        modalSection.classList.add('modal-section--active');
+        modalSection.classList.remove('modal-section--disactive');
         //Открыть/Закрыть модальное окно
-        //modalSection.addEventListener('click', (elem) => {
-        //    const event = elem.target;
-
-        //    if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-region-close')) {
-        //        modalSection.classList.add('modal-section--disactive');
-        //        modalSection.classList.remove('modal-section--active');
-        //    }
-        //});
+        modalSection.addEventListener('click', (elem) => {
+            const event = elem.target;
+            if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true') || event.classList.contains('modal-region-close')) {
+                modalSection.classList.add('modal-section--disactive');
+                modalSection.classList.remove('modal-section--active');
+            }
+        });
 
         //Запуск модального окна при клике на иконку с флагами в шапке
         //btnFlag.addEventListener('click', () => {
@@ -91,6 +96,61 @@ function regionCookieHandler() {
         //Модальное окно End
 
     }
+    else {
+        modalSection.classList.remove('modal-section--active');
+        modalSection.classList.add('modal-section--disactive');
+
+        //Запуск модального окна при клике на иконку с флагами в шапке
+        btnFlag.addEventListener('click', () => {
+            modalSection.classList.add('modal-section--active');
+            modalSection.classList.remove('modal-section--disactive');
+            modalContainer.classList.remove('--active');
+            modalContainer.classList.add('--disactive');
+            modalRegion.classList.remove('--disactive');
+            modalRegion.classList.add('--active');
+        });
+
+        //Открыть/Закрыть модальное окно
+        modalSection.addEventListener('click', (elem) => {
+            console.log('asdf');
+            const event = elem.target;
+            if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true') || event.classList.contains('modal-region-close')) {
+                modalSection.classList.add('modal-section--disactive');
+                modalSection.classList.remove('modal-section--active');
+            }
+        });
+        //Смена флажков и блоков при выборе страны
+        counryButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                const action = event.target;
+                disabledNav(counryButtons);
+                action.classList.add('country--active');
+                if (button.getAttribute('data-country') == "kz") {
+                    flag.src = './img/kz.svg';
+                    modalSection.classList.add('modal-section--disactive');
+                }
+                if (button.getAttribute('data-country') == "ru") {
+                    flag.src = './img/ru.svg';
+                    modalSection.classList.add('modal-section--disactive');
+                    advantagesBlock.style.paddingBottom = "0px";
+                }
+                if (button.getAttribute('data-country') == "kg") {
+                    flag.src = './img/kg.svg';
+                    modalSection.classList.add('modal-section--disactive');
+                }
+                if (button.getAttribute('data-country') != "ru") {
+                    advantagesBlock.style.paddingBottom = "32px";
+                }
+            })
+        });
+        //Сброс стилей у неактивных табов при клике
+        function disabledNav(blocks) {
+            blocks.forEach(function (elem) {
+                elem.classList.remove('country--active');
+            });
+        }
+        //Модальное окно End
+    }
 }
 
 regionCookieHandler();
@@ -132,8 +192,8 @@ programsResultBtn.addEventListener('click', () => {
     }
 })
 const stagesWrp = pageContainer.querySelector('.stages-wrp');
-const stages = Array.from(stagesWrp.querySelectorAll('.stage'));
-stagesWrp.addEventListener('click', stagesClickHandler);
+const stages = Array.from(document.querySelectorAll('.stage')); //здесь всесто document была надпись stagesWrp
+/*stagesWrp.addEventListener('click', stagesClickHandler);*/
 
 function resizeVideoFrame() {
     const { width } = videoWrp.getBoundingClientRect();

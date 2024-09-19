@@ -92,11 +92,11 @@
              <div class="navigation-item__flag-box">
               <?php if($region == "ru") { ?>
                  <img src="./img/ru.svg" alt="Выбор региона" class="navigation-flag" />
-              <?php} if($region == "kz") { ?>
+              <?php } if($region == "kz") { ?>
                  <img src="./img/kz.svg" alt="Выбор региона" class="navigation-flag" />
-              <?php} else($region == "kg") { ?>
+              <?php } if($region == "kg") { ?>
                  <img src="./img/kg.svg" alt="Выбор региона" class="navigation-flag" /> 
-              <?php}?>
+              <?php }?>
              </div>
 
          </div>
@@ -789,6 +789,16 @@
  </div>
 
         <div class="modal-section modal-section--disactive">
+            <div class="modal-container --active">
+                <div class="modal-close">&#10006;</div>
+                <div class="modal-title">
+                    Ваш регион <span>Россия?</span>
+                </div>
+                <div class="modal-buttons__container">
+                    <div class="modal-button modal-button__true">Всё верно</div>
+                    <div class="modal-button modal-button__change">Сменить регион</div>
+                </div>
+            </div>
             <div class="modal-change-container --disactive">
                 <div class="modal-region">
                     <div class="modal-region-close">&#10006;</div>
@@ -796,9 +806,9 @@
                         Выберите свой регион
                     </div>
                     <div class="modal-country__container">
-                        <div data-country="ru" class="country-button country--active">Россия</div>
-                        <div data-country="kz" class="country-button">Казахстан</div>
-                        <div data-country="kg" class="country-button">Кыргызстан</div>
+                        <a href="https://o-test.vilavi.com/index.php?region=ru" data-country="ru" class="country-button country--active">Россия</a>
+                        <a href="https://o-test.vilavi.com/index.php?region=kz" data-country="kz" class="country-button">Казахстан</a>
+                        <a href="https://o-test.vilavi.com/index.php?region=kg" data-country="kg" class="country-button">Кыргызстан</a>
                     </div>
                 </div>
             </div>

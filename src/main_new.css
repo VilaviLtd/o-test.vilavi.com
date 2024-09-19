@@ -1683,6 +1683,11 @@ div[data-style="four-corners"] {
 
 .--active {
   display: block;
+  width: 345px;
+  padding: 30px;
+  position: relative;
+  border-radius: 15px;
+  background: #fff;
 }
 
 .--disactive {
@@ -1741,11 +1746,6 @@ div[data-style="four-corners"] {
 
 /*Модальное окно второе*/
 .modal-change-container {
-  width: 345px;
-  padding: 30px;
-  position: relative;
-  border-radius: 15px;
-  background: #fff;
 }
 
 .modal-region-close {
