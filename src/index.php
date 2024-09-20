@@ -46,8 +46,6 @@
 			die();
 		}
 	}
-
-    echo "reg=".$region."<br/>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
