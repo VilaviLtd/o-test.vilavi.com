@@ -1,13 +1,104 @@
 /* запись рефки в куки */
 const params = new URLSearchParams(document.location.search);
-const ref = params.get('ref');
-if (ref) {
+const refVal = params.get('ref');
+
+function setCookieValue(name, value, expiryDate) {
+    document.cookie = `${name}=${value}; expires=${expiryDate}`;
+}
+
+if (refVal) {
     const refRegExp = /^\d+$/;
-    if (refRegExp.test(ref)) {
-        let date = new Date(Date.now() + 31557600e3);
-        document.cookie = `ref=${ref}; expires=${date}`;
+    if (refRegExp.test(refVal)) {
+        const name = 'ref';
+        const expiryDate = new Date(Date.now() + 31557600e3); // год
+        setCookieValue(name, refVal, expiryDate);
     }
 }
+
+/* проверка региона в куках */
+function getCookieValue(name) {
+    const regex = new RegExp(`(^| )${name}=([^;]+)`);
+    const match = document.cookie.match(regex);
+
+    if (match) {
+        return match[2];
+    }
+}
+const modalSection = document.querySelector('.modal-section');
+const modalContainer = document.querySelector('.modal-container');
+const modalRegion = document.querySelector('.modal-change-container');
+const btnChange = document.querySelector('.modal-button__change');
+const btnFlag = document.querySelector('.navigation-item__flag-box');
+const counryButtons = document.querySelectorAll('.country-button');
+const flag = document.querySelector('.navigation-flag');
+const delivery = document.querySelector('.delivery-container');
+const advantagesBlock = document.querySelector('.advantages-block');
+const stagesCountries = document.querySelector('.stages-for-other-countries');
+const stagesRu = document.querySelector('.stages');
+function regionCookieHandler() {
+    const name = 'region';
+    const value = getCookieValue(name);
+
+    if (!value) {
+        // открываем модалку с выбором региона тут.
+        //Модальное окно Start
+        modalSection.classList.add('modal-section--active');
+        modalSection.classList.remove('modal-section--disactive');
+
+        //Запуск модального окна при клике на иконку с флагами в шапке
+        showModalClickFlag();
+
+        //Закрыть модальное окно
+        modalSection.addEventListener('click', (elem) => {
+            const event = elem.target;
+            if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true') || event.classList.contains('modal-region-close')) {
+                modalSection.classList.add('modal-section--disactive');
+                modalSection.classList.remove('modal-section--active');
+            }
+        });
+        //Открытие второго модального окна с выбором регионов
+        btnChange.addEventListener('click', () => {
+            console.log('btnChange');
+            modalContainer.classList.remove('--active');
+            modalContainer.classList.add('--disactive');
+            modalRegion.classList.remove('--disactive');
+            modalRegion.classList.add('--active');
+            document.cookie = "max-age=" + 30 * 24 * 60 * 60;
+        });
+    }
+    else {
+        modalSection.classList.remove('modal-section--active');
+        modalSection.classList.add('modal-section--disactive');
+
+        //Запуск модального окна при клике на иконку с флагами в шапке
+        showModalClickFlag();
+
+        //Закрыть модальное окно
+        modalSection.addEventListener('click', (elem) => {
+            const event = elem.target;
+            if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true') || event.classList.contains('modal-region-close')) {
+                modalSection.classList.add('modal-section--disactive');
+                modalSection.classList.remove('modal-section--active');
+            }
+        });
+        //Модальное окно End
+    }
+}
+
+function showModalClickFlag() {
+    btnFlag.addEventListener('click', () => {
+        modalSection.classList.add('modal-section--active');
+        modalSection.classList.remove('modal-section--disactive');
+        modalContainer.classList.remove('--active');
+        modalContainer.classList.add('--disactive');
+        modalRegion.classList.remove('--disactive');
+        modalRegion.classList.add('--active');
+    });
+}
+
+regionCookieHandler();
+/* проверка региона в куках */
+
 /* запись рефки в куки */
 // const oneRem =  Number((body.style.fontSize).replace('px', ''));
 const pageContainer = document.querySelector('#pageContainer');
@@ -29,12 +120,12 @@ pretestingForm.addEventListener('submit', (e) => {
     e.preventDefault();
     let formData = new FormData(pretestingForm);
     let values = [];
-    for(const [key, value] of formData) {
+    for (const [key, value] of formData) {
         if (key !== 'age' && key !== 'gender') {
             values.push(value);
         }
     }
-    openModal('pretesting', { age: formData.get('age'), gender: formData.get('gender'),  problemsListKeys: values});
+    openModal('pretesting', { age: formData.get('age'), gender: formData.get('gender'), problemsListKeys: values });
 });
 const programsResultBtn = pageContainer.querySelector('#programsResultBtn');
 programsResultBtn.addEventListener('click', () => {
@@ -44,20 +135,20 @@ programsResultBtn.addEventListener('click', () => {
     }
 })
 const stagesWrp = pageContainer.querySelector('.stages-wrp');
-const stages = Array.from(stagesWrp.querySelectorAll('.stage'));
-stagesWrp.addEventListener('click', stagesClickHandler);
+const stages = Array.from(document.querySelectorAll('.stage')); //здесь всесто document была надпись stagesWrp
+/*stagesWrp.addEventListener('click', stagesClickHandler);*/
 
-function resizeVideoFrame () {
+function resizeVideoFrame() {
     const { width } = videoWrp.getBoundingClientRect();
     video1.setAttribute('width', width);
     video1.setAttribute('height', (width) * 0.5625);
 }
 
-function stagesClickHandler(e) {    
+function stagesClickHandler(e) {
     const { target } = e;
     const card = target?.dataset?.type === 'card' ? target : target.closest('[data-type="card"]');
     if (card) {
-        const iconWrp = card.querySelector('.stage-icon-wrp'); 
+        const iconWrp = card.querySelector('.stage-icon-wrp');
         const title = card.querySelector('.stage-title');
         const description = card.querySelector('.stage-description');
 
@@ -69,8 +160,8 @@ function stagesClickHandler(e) {
 
         const isTurned = card.classList.contains('turned');
         isTurned ? card.classList.remove('turned') : '';
-        
-        const p1 = new Promise(function(resolve) {
+
+        const p1 = new Promise(function (resolve) {
             card.classList.add('clicked');
             setTimeout(() => {
                 card.classList.remove('clicked');
@@ -83,7 +174,7 @@ function stagesClickHandler(e) {
             if (currentSide === 'front') {
                 iconWrp.style.display = 'none';
                 title.style.display = 'none';
-                description.style.display ='flex';
+                description.style.display = 'flex';
                 card.setAttribute('data-side', 'back');
             } else {
                 iconWrp.style.display = 'flex';
@@ -155,7 +246,7 @@ function createModalHtml(data) {
         //     return result;
         // }
 
-        
+
         if (data?.imgSrc) {
             const modalBodyContent = `<image src="${data.imgSrc}" />`
             return `
@@ -180,7 +271,7 @@ function createModalHtml(data) {
         // if (data?.content) {
         //     modalBodyContent = data.content;
         // }
-        
+
         return `
         <div class="modal-container">
             <div class="close-btn-wrp">
@@ -198,7 +289,7 @@ function createModalHtml(data) {
             <div class="pretesting-modal" id="otest-modal" data-state="close"></div>
         `;
     }
-    
+
 }
 
 let modalHTML = createModalHtml();
@@ -317,7 +408,7 @@ function openModal(name, options) {
     modal.insertAdjacentHTML('beforeend', createModalHtml(data));
     const modalCloseBtn = modal.querySelector('#modalCloseBtn');
     modalCloseBtn.addEventListener('click', closeModal);
-    
+
     toggleModalState();
     modal.style.display = 'flex';
     modalCloseBtn.style.transform = 'rotate(0)';
@@ -444,7 +535,7 @@ function addRoudedCornersForElement(el, corners, offset = 0) {
     if (el) {
         if (el instanceof HTMLElement) {
             el.style.position = 'relative';
-            corners = {tLeft: false, bLeft: false, tRight: false, bRight: false, ...corners};
+            corners = { tLeft: false, bLeft: false, tRight: false, bRight: false, ...corners };
             const keys = Object.keys(corners);
             if (keys.length > 0) {
                 keys.forEach(k => {
@@ -453,26 +544,26 @@ function addRoudedCornersForElement(el, corners, offset = 0) {
                         let pathToImg = './img/{name}-rounded-corner.svg';
                         switch (k) {
                             case 'tLeft':
-                                pathToImg = pathToImg.replace('{name}', 'top-left'); 
-                                img.style.cssText = offset !== 0 
-                                    ? `position: absolute; left: ${offset}px; top: ${offset}px; width: unset;` 
+                                pathToImg = pathToImg.replace('{name}', 'top-left');
+                                img.style.cssText = offset !== 0
+                                    ? `position: absolute; left: ${offset}px; top: ${offset}px; width: unset;`
                                     : "position: absolute; left: 0; top: 0; width: unset;";
                                 break;
                             case 'bLeft':
                                 pathToImg = pathToImg.replace('{name}', 'bottom-left');
-                                img.style.cssText = offset !== 0 
+                                img.style.cssText = offset !== 0
                                     ? `position: absolute; left: ${offset}px; bottom: ${offset}px; width: unset;`
                                     : "position: absolute; left: 0; bottom: 0; width: unset;";
                                 break;
                             case 'tRight':
                                 pathToImg = pathToImg.replace('{name}', 'top-right');
-                                img.style.cssText = offset !== 0 
+                                img.style.cssText = offset !== 0
                                     ? `position: absolute; right: ${offset}px; top: ${offset}px; width: unset;`
                                     : "position: absolute; right: 0; top: 0; width: unset;";
                                 break;
                             default:
                                 pathToImg = pathToImg.replace('{name}', 'bottom-right');
-                                img.style.cssText = offset !== 0 
+                                img.style.cssText = offset !== 0
                                     ? `position: absolute; right: ${offset}px; bottom: ${offset}px; width: unset;`
                                     : "position: absolute; right: 0; bottom: 0; width: unset;";
                                 break;
