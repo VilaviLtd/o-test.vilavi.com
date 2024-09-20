@@ -38,20 +38,31 @@ const stagesRu = document.querySelector('.stages');
 function regionCookieHandler() {
     const name = 'region';
     const value = getCookieValue(name);
-    console.log(value);
 
     if (!value) {
         // открываем модалку с выбором региона тут.
         //Модальное окно Start
         modalSection.classList.add('modal-section--active');
         modalSection.classList.remove('modal-section--disactive');
-        //Открыть/Закрыть модальное окно
+
+        //Запуск модального окна при клике на иконку с флагами в шапке
+        showModalClickFlag();
+
+        //Закрыть модальное окно
         modalSection.addEventListener('click', (elem) => {
             const event = elem.target;
             if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true') || event.classList.contains('modal-region-close')) {
                 modalSection.classList.add('modal-section--disactive');
                 modalSection.classList.remove('modal-section--active');
             }
+        });
+        //Открытие второго модального окна с выбором регионов
+        btnChange.addEventListener('click', () => {
+            console.log('btnChange');
+            modalContainer.classList.remove('--active');
+            modalContainer.classList.add('--disactive');
+            modalRegion.classList.remove('--disactive');
+            modalRegion.classList.add('--active');
         });
     }
     else {
@@ -59,50 +70,30 @@ function regionCookieHandler() {
         modalSection.classList.add('modal-section--disactive');
 
         //Запуск модального окна при клике на иконку с флагами в шапке
-        btnFlag.addEventListener('click', () => {
-            modalSection.classList.add('modal-section--active');
-            modalSection.classList.remove('modal-section--disactive');
-            modalContainer.classList.remove('--active');
-            modalContainer.classList.add('--disactive');
-            modalRegion.classList.remove('--disactive');
-            modalRegion.classList.add('--active');
-        });
-        //Открыть/Закрыть модальное окно
+        showModalClickFlag();
+
+        //Закрыть модальное окно
         modalSection.addEventListener('click', (elem) => {
-            console.log('asdf');
             const event = elem.target;
             if (event.classList.contains('modal-section') || event.classList.contains('modal-close') || event.classList.contains('modal-button__true') || event.classList.contains('modal-region-close')) {
                 modalSection.classList.add('modal-section--disactive');
                 modalSection.classList.remove('modal-section--active');
             }
         });
-        //Смена флажков и блоков при выборе страны
-        counryButtons.forEach((button) => {
-            button.addEventListener('click', (event) => {
-                const action = event.target;
-                action.classList.add('country--active');
-                if (button.getAttribute('data-country') == "kz") {
-                    flag.src = './img/kz.svg';
-                    modalSection.classList.add('modal-section--disactive');
-                }
-                if (button.getAttribute('data-country') == "ru") {
-                    flag.src = './img/ru.svg';
-                    modalSection.classList.add('modal-section--disactive');
-                    advantagesBlock.style.paddingBottom = "0px";
-                }
-                if (button.getAttribute('data-country') == "kg") {
-                    flag.src = './img/kg.svg';
-                    modalSection.classList.add('modal-section--disactive');
-                }
-                if (button.getAttribute('data-country') != "ru") {
-                    advantagesBlock.style.paddingBottom = "32px";
-                }
-            })
-        });
         //Модальное окно End
     }
 }
 
+function showModalClickFlag() {
+    btnFlag.addEventListener('click', () => {
+        modalSection.classList.add('modal-section--active');
+        modalSection.classList.remove('modal-section--disactive');
+        modalContainer.classList.remove('--active');
+        modalContainer.classList.add('--disactive');
+        modalRegion.classList.remove('--disactive');
+        modalRegion.classList.add('--active');
+    });
+}
 
 regionCookieHandler();
 /* проверка региона в куках */
