@@ -63,6 +63,7 @@ function regionCookieHandler() {
             modalContainer.classList.add('--disactive');
             modalRegion.classList.remove('--disactive');
             modalRegion.classList.add('--active');
+            document.cookie = "max-age=" + 30 * 24 * 60 * 60;
         });
     }
     else {
