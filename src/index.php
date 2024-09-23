@@ -411,6 +411,39 @@
              </div>
          </div>
      </div>
+     <div class="select-test">
+         <div class="test-card">
+             <div class="card-img-wrp"><img src="./img/product1.jpg" alt=""></div>
+             <div class="card-description">
+                 <p>
+                     <span>О!пределяйте</span> свой уровень омега-3 с помощью простого теста
+                 </p>
+                 <p>
+                     <span>О!птимизируйте</span> ресурсное состояние организма с помощью советов нашего эксперта и эффективных продуктов от VILAVI
+                 </p>
+             </div>
+             <a href="https://store.vilavi.com/Item/62366" class="buy-btn">Купить</a>
+         </div>
+
+         <div class="test-card">
+             <div class="card-img-wrp"><img src="./img/product2.jpg" alt=""></div>
+             <div class="card-description">
+                 <p>
+                     <span>О!пределяйте</span> свой уровень омега-3 с помощью простого теста
+                 </p>
+                 <p>
+                     <span>О!птимизируйте</span> ресурсное состояние организма с помощью советов нашего эксперта и эффективных продуктов от VILAVI
+                 </p>
+                 <p>
+                     <span>О!тслеживайте</span> свое состояние в динамике (в наборе второй тест для контроля результата “до-после”)
+                 </p>
+                 <p>
+                     <span>О!мега-3</span> получайте в подарок и принимайте их сразу, чтобы поддерживать оптимальный уровень омега-3
+                 </p>
+             </div>
+             <a href="https://shop.vilavi.com/Item/62396" class="buy-btn">Купить</a>
+         </div>
+     </div>
 
  <?php if($region != "ru") { ?>
       <!--Блок для содружественников Start-->
@@ -458,13 +491,10 @@
                  </div>
                  <div class="stage-country__info-block">
                      <div class="info-block-title">
-                         3. Отправка теста – за счет покупателя.
+                         3.  Подготовьте тест для отправки.
                      </div>
                      <div class="info-block-text">
-                        Используйте почту (Вашей страны) EMS для отправки с пометкой "медицинские документы"
-                        по адресу: 190013, Россия, Санкт-Петербург, Московский проспект, дом 22, литера Л, пом. 25-Н
-                        ФИО/Организация: ООО «МедБазис», Мария Иванова
-                        Тел.: 8 (812) 200-75-22
+                        Упакуйте его плотно и надежно.
                      </div>
                  </div>
              </div>
@@ -474,13 +504,14 @@
                  </div>
                  <div class="stage-country__info-block">
                      <div class="info-block-title">
-                         4. Отправьте тест в лабораторию. 
+                         4. Отправьте тест в лабораторию.* 
                      </div>
                      <div class="info-block-text">
                          Используйте почту (Вашей страны) EMS для отправки с пометкой "медицинские документы"<br>
                         <span>по адресу: 190013, Россия, Санкт-Петербург, Московский проспект, дом 22, литера Л, пом. 25-Н
-                        ФИО/Организация: ООО «МедБазис», Мария Иванова
-                        Тел.: 8 (812) 200-75-22<span>
+                        ФИО/Организация: ООО «МедБазис», Мария Иванова<br>
+                        Тел.: 8 (812) 200-75-22<br></span>
+                        *Отправка теста – за счет покупателя
                      </div>
                  </div>
              </div>
@@ -544,40 +575,7 @@
      <!--Блок для содружественников End-->
 
  <?php } else { ?>
-     <div class="select-test">
-         <div class="test-card">
-             <div class="card-img-wrp"><img src="./img/product1.jpg" alt=""></div>
-             <div class="card-description">
-                 <p>
-                     <span>О!пределяйте</span> свой уровень омега-3 с помощью простого теста
-                 </p>
-                 <p>
-                     <span>О!птимизируйте</span> ресурсное состояние организма с помощью советов нашего эксперта и эффективных продуктов от VILAVI
-                 </p>
-             </div>
-             <a href="https://store.vilavi.com/Item/62366" class="buy-btn">Купить</a>
-         </div>
-
-         <div class="test-card">
-             <div class="card-img-wrp"><img src="./img/product2.jpg" alt=""></div>
-             <div class="card-description">
-                 <p>
-                     <span>О!пределяйте</span> свой уровень омега-3 с помощью простого теста
-                 </p>
-                 <p>
-                     <span>О!птимизируйте</span> ресурсное состояние организма с помощью советов нашего эксперта и эффективных продуктов от VILAVI
-                 </p>
-                 <p>
-                     <span>О!тслеживайте</span> свое состояние в динамике (в наборе второй тест для контроля результата “до-после”)
-                 </p>
-                 <p>
-                     <span>О!мега-3</span> получайте в подарок и принимайте их сразу, чтобы поддерживать оптимальный уровень омега-3
-                 </p>
-             </div>
-             <a href="https://shop.vilavi.com/Item/62396" class="buy-btn">Купить</a>
-         </div>
-     </div>
-
+ <!--Блок для России Star -->
      <div class="stages stages--active">
          <div class="stages-title">Этапы проведения O! Test</div>
          <div class="stages-wrp">
@@ -652,7 +650,7 @@
              <a href="https://www.youtube.com/watch?v=yB69tgtX53I" target="_blank" class="video-instruction-btn">Смотреть инструкцию</a>
          </div>
      </div>
-
+ <!--Блок для России End -->
  <?php } ?>
 
      <div class="after-test-block" id="optimize">
