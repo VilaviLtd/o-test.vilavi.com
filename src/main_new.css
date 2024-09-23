@@ -554,6 +554,7 @@ fieldset {
   border: 1px solid var(--main-color);
   border-radius: var(--common-border-radius);
   overflow: hidden;
+  margin: 0px 0px 20px 0px;
 }
 
 .advantages-block-title {
