@@ -411,7 +411,39 @@
              </div>
          </div>
      </div>
+     <div class="select-test">
+         <div class="test-card">
+             <div class="card-img-wrp"><img src="./img/product1.jpg" alt=""></div>
+             <div class="card-description">
+                 <p>
+                     <span>О!пределяйте</span> свой уровень омега-3 с помощью простого теста
+                 </p>
+                 <p>
+                     <span>О!птимизируйте</span> ресурсное состояние организма с помощью советов нашего эксперта и эффективных продуктов от VILAVI
+                 </p>
+             </div>
+             <a href="https://store.vilavi.com/Item/62366" class="buy-btn">Купить</a>
+         </div>
 
+         <div class="test-card">
+             <div class="card-img-wrp"><img src="./img/product2.jpg" alt=""></div>
+             <div class="card-description">
+                 <p>
+                     <span>О!пределяйте</span> свой уровень омега-3 с помощью простого теста
+                 </p>
+                 <p>
+                     <span>О!птимизируйте</span> ресурсное состояние организма с помощью советов нашего эксперта и эффективных продуктов от VILAVI
+                 </p>
+                 <p>
+                     <span>О!тслеживайте</span> свое состояние в динамике (в наборе второй тест для контроля результата “до-после”)
+                 </p>
+                 <p>
+                     <span>О!мега-3</span> получайте в подарок и принимайте их сразу, чтобы поддерживать оптимальный уровень омега-3
+                 </p>
+             </div>
+             <a href="https://shop.vilavi.com/Item/62396" class="buy-btn">Купить</a>
+         </div>
+     </div>
 
  <?php if($region != "ru") { ?>
       <!--Блок для содружественников Start-->
