@@ -807,23 +807,23 @@
                     </div>
                     <?php if($region == "ru") { ?>
                         <div class="modal-country__container">
-                            <a href="https://o-test.vilavi.com/index.php?region=ru" data-country="ru" class="country-button country--active">Россия</a>
-                            <a href="https://o-test.vilavi.com/index.php?region=kz" data-country="kz" class="country-button">Казахстан</a>
-                            <a href="https://o-test.vilavi.com/index.php?region=kg" data-country="kg" class="country-button">Кыргызстан</a>
+                            <a href="https://o-test.vilavi.com/?region=ru" data-country="ru" class="country-button country--active">Россия</a>
+                            <a href="https://o-test.vilavi.com/?region=kz" data-country="kz" class="country-button">Казахстан</a>
+                            <a href="https://o-test.vilavi.com/?region=kg" data-country="kg" class="country-button">Кыргызстан</a>
                         </div>
                     <?php } ?>
                     <?php if($region == "kz") { ?>
                         <div class="modal-country__container">
-                            <a href="https://o-test.vilavi.com/index.php?region=ru" data-country="ru" class="country-button">Россия</a>
-                            <a href="https://o-test.vilavi.com/index.php?region=kz" data-country="kz" class="country-button country--active">Казахстан</a>
-                            <a href="https://o-test.vilavi.com/index.php?region=kg" data-country="kg" class="country-button">Кыргызстан</a>
+                            <a href="https://o-test.vilavi.com/?region=ru" data-country="ru" class="country-button">Россия</a>
+                            <a href="https://o-test.vilavi.com/?region=kz" data-country="kz" class="country-button country--active">Казахстан</a>
+                            <a href="https://o-test.vilavi.com/?region=kg" data-country="kg" class="country-button">Кыргызстан</a>
                         </div>
                     <?php } ?>
                     <?php if($region == "kg") { ?>
                         <div class="modal-country__container">
-                            <a href="https://o-test.vilavi.com/index.php?region=ru" data-country="ru" class="country-button">Россия</a>
-                            <a href="https://o-test.vilavi.com/index.php?region=kz" data-country="kz" class="country-button">Казахстан</a>
-                            <a href="https://o-test.vilavi.com/index.php?region=kg" data-country="kg" class="country-button country--active">Кыргызстан</a>
+                            <a href="https://o-test.vilavi.com/?region=ru" data-country="ru" class="country-button">Россия</a>
+                            <a href="https://o-test.vilavi.com/?region=kz" data-country="kz" class="country-button">Казахстан</a>
+                            <a href="https://o-test.vilavi.com/?region=kg" data-country="kg" class="country-button country--active">Кыргызстан</a>
                         </div>
                     <?php } ?>
                 </div>
