@@ -42,8 +42,8 @@
 			// но регион есть в куке и он является допустимым, перенаправляем на запрос с регионом
 			if($cookieRegion != $defaultRegion) {
 				header("Location: https://o-test.vilavi.com?region=".$cookieRegion);
+				die();
 			}
-			die();
 		}
 	}
 ?>
