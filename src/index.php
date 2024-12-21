@@ -782,7 +782,7 @@
      <div class="footer">
          <div class="footer-content">
              <div class="footer-logo-wrp">
-                 <img src="./img/vilavi-logo.svg" alt="" class="footer-logo">
+                 <img src="https://www.vilavi.com/img/vilavi-white-logo.svg" alt="" class="footer-logo">
              </div>
              <div class="contacts">
                  <div class="email">
